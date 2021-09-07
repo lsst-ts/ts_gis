@@ -2,6 +2,4 @@
 ts_gis
 ######
 
-``ts_gis`` is a package in the `LSST Science Pipelines <https://pipelines.lsst.io>`_.
-
-.. Add a brief (few sentence) description of what this package provides.
+A CSC which reports information from the Global Interlock System (GIS).

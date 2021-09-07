@@ -1,0 +1,2454 @@
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:08:15+0000
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 1312877081 from [1,2147483647]
+Node        : e7e15352f2b8
+Process     : python3.8 <757>
+Thread      : spliced 7f701c191700
+Internals   : 6.9.190925OSS///The OpenSplice domain service/u_domain.c/785/0/1630512495.305511193/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:08:15+0000
+Description : Service cmsoap disabled
+Node        : e7e15352f2b8
+Process     : python3.8 <757>
+Thread      : spliced 7f701c191700
+Internals   : 6.9.190925OSS///OpenSplice domain service/sr_componentInfo.c/446/0/1630512495.307067188/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:08:15+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <757>
+Thread      : spliced 7f701c191700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630512495.308545154/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:08:15+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <757>
+Thread      : ddsi2 7f700776e700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630512495.326329761/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:08:15+0000
+Description : The durability service can be identified by ID: 1312877081
+Node        : e7e15352f2b8
+Process     : python3.8 <757>
+Thread      : durability 7f7007b33700
+Internals   : 6.9.190925OSS///DurabilityService/d_durability.c/554/0/1630512495.643358648/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:08:16+0000
+Description : ================================================
+              == The service 'ddsi2' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <757>
+Thread      : ddsi2 7f700776e700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630512496.395724768/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:08:18+0000
+Description : ================================================
+              == The service 'durability' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <757>
+Thread      : durability 7f7007b33700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630512498.630035147/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:08:18+0000
+Description : ================================================
+              == The service 'splicedaemon' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <757>
+Thread      : spliced 7f701c191700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630512498.731483343/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:08:18+0000
+Description : Removed 8632 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <757>
+Thread      : main thread 7f705fb24740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630512498.839344118/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:08:18+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <757>
+Thread      : main thread 7f705fb24740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630512498.922773758/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:08:18+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <757>
+Thread      : main thread 7f705fb24740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630512498.924402485/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:08:18+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <757>
+Thread      : main thread 7f705fb24740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630512498.925609949/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:08:18+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <757>
+Thread      : main thread 7f705fb24740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630512498.926769523/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:17:13+0000
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 995940356 from [1,2147483647]
+Node        : e7e15352f2b8
+Process     : python3.8 <817>
+Thread      : spliced 7fcb00019700
+Internals   : 6.9.190925OSS///The OpenSplice domain service/u_domain.c/785/0/1630513033.244317612/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:17:13+0000
+Description : Service cmsoap disabled
+Node        : e7e15352f2b8
+Process     : python3.8 <817>
+Thread      : spliced 7fcb00019700
+Internals   : 6.9.190925OSS///OpenSplice domain service/sr_componentInfo.c/446/0/1630513033.246354570/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:17:13+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <817>
+Thread      : spliced 7fcb00019700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630513033.248230594/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:17:13+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <817>
+Thread      : ddsi2 7fcafa781700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630513033.261648633/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:17:13+0000
+Description : The durability service can be identified by ID: 995940356
+Node        : e7e15352f2b8
+Process     : python3.8 <817>
+Thread      : durability 7fcafab46700
+Internals   : 6.9.190925OSS///DurabilityService/d_durability.c/554/0/1630513033.579355958/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:17:14+0000
+Description : ================================================
+              == The service 'ddsi2' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <817>
+Thread      : ddsi2 7fcafa781700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630513034.344361151/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:17:16+0000
+Description : ================================================
+              == The service 'durability' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <817>
+Thread      : durability 7fcafab46700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630513036.568768465/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:17:16+0000
+Description : ================================================
+              == The service 'splicedaemon' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <817>
+Thread      : spliced 7fcb00019700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630513036.666926302/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:17:16+0000
+Description : Removed 8632 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <817>
+Thread      : main thread 7fcb42aeb740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630513036.776348401/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:17:16+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <817>
+Thread      : main thread 7fcb42aeb740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630513036.860018072/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:17:16+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <817>
+Thread      : main thread 7fcb42aeb740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630513036.862015926/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:17:16+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <817>
+Thread      : main thread 7fcb42aeb740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630513036.863408431/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:17:16+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <817>
+Thread      : main thread 7fcb42aeb740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630513036.864569966/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:18:40+0000
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 806511659 from [1,2147483647]
+Node        : e7e15352f2b8
+Process     : python3.8 <880>
+Thread      : spliced 7f8c5c148700
+Internals   : 6.9.190925OSS///The OpenSplice domain service/u_domain.c/785/0/1630513120.770172602/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:18:40+0000
+Description : Service cmsoap disabled
+Node        : e7e15352f2b8
+Process     : python3.8 <880>
+Thread      : spliced 7f8c5c148700
+Internals   : 6.9.190925OSS///OpenSplice domain service/sr_componentInfo.c/446/0/1630513120.772374926/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:18:40+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <880>
+Thread      : spliced 7f8c5c148700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630513120.774137374/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:18:40+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <880>
+Thread      : ddsi2 7f8c4776e700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630513120.787191777/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:18:41+0000
+Description : The durability service can be identified by ID: 806511659
+Node        : e7e15352f2b8
+Process     : python3.8 <880>
+Thread      : durability 7f8c47b33700
+Internals   : 6.9.190925OSS///DurabilityService/d_durability.c/554/0/1630513121.132305939/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:18:41+0000
+Description : ================================================
+              == The service 'ddsi2' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <880>
+Thread      : ddsi2 7f8c4776e700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630513121.860896233/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:18:44+0000
+Description : ================================================
+              == The service 'durability' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <880>
+Thread      : durability 7f8c47b33700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630513124.099184293/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:18:44+0000
+Description : ================================================
+              == The service 'splicedaemon' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <880>
+Thread      : spliced 7f8c5c148700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630513124.196052154/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:18:44+0000
+Description : Removed 8632 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <880>
+Thread      : main thread 7f8c9fadb740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630513124.305588572/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:18:44+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <880>
+Thread      : main thread 7f8c9fadb740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630513124.387257058/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:18:44+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <880>
+Thread      : main thread 7f8c9fadb740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630513124.388888358/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:18:44+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <880>
+Thread      : main thread 7f8c9fadb740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630513124.390345921/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:18:44+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <880>
+Thread      : main thread 7f8c9fadb740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630513124.391492522/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:19:09+0000
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 1750529038 from [1,2147483647]
+Node        : e7e15352f2b8
+Process     : python3.8 <1650>
+Thread      : spliced 7f9876e59700
+Internals   : 6.9.190925OSS///The OpenSplice domain service/u_domain.c/785/0/1630513149.197145437/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:19:09+0000
+Description : Service cmsoap disabled
+Node        : e7e15352f2b8
+Process     : python3.8 <1650>
+Thread      : spliced 7f9876e59700
+Internals   : 6.9.190925OSS///OpenSplice domain service/sr_componentInfo.c/446/0/1630513149.199040976/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:19:09+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <1650>
+Thread      : spliced 7f9876e59700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630513149.201297166/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:19:09+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <1650>
+Thread      : ddsi2 7f9876460700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630513149.214399370/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:19:09+0000
+Description : The durability service can be identified by ID: 1750529038
+Node        : e7e15352f2b8
+Process     : python3.8 <1650>
+Thread      : durability 7f9876847700
+Internals   : 6.9.190925OSS///DurabilityService/d_durability.c/554/0/1630513149.530777131/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:19:11+0000
+Description : ================================================
+              == The service 'ddsi2' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <1650>
+Thread      : ddsi2 7f9876460700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630513151.700703665/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:19:13+0000
+Description : ================================================
+              == The service 'durability' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <1650>
+Thread      : durability 7f9876847700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630513153.523895700/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:19:13+0000
+Description : ================================================
+              == The service 'splicedaemon' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <1650>
+Thread      : spliced 7f9876e59700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630513153.624956965/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:19:13+0000
+Description : Removed 10295 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <1650>
+Thread      : main thread 7f98ba7ec740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630513153.734251963/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:19:13+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <1650>
+Thread      : main thread 7f98ba7ec740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630513153.822464360/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:19:13+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <1650>
+Thread      : main thread 7f98ba7ec740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630513153.823803584/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:19:13+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <1650>
+Thread      : main thread 7f98ba7ec740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630513153.825057946/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:19:13+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <1650>
+Thread      : main thread 7f98ba7ec740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630513153.826285489/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:19:46+0000
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 539522360 from [1,2147483647]
+Node        : e7e15352f2b8
+Process     : python3.8 <1735>
+Thread      : spliced 7f010403f700
+Internals   : 6.9.190925OSS///The OpenSplice domain service/u_domain.c/785/0/1630513186.660046267/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:19:46+0000
+Description : Service cmsoap disabled
+Node        : e7e15352f2b8
+Process     : python3.8 <1735>
+Thread      : spliced 7f010403f700
+Internals   : 6.9.190925OSS///OpenSplice domain service/sr_componentInfo.c/446/0/1630513186.662643831/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:19:46+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <1735>
+Thread      : spliced 7f010403f700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630513186.664047446/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:19:46+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <1735>
+Thread      : ddsi2 7f00f765b700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630513186.677593062/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:19:46+0000
+Description : The durability service can be identified by ID: 539522360
+Node        : e7e15352f2b8
+Process     : python3.8 <1735>
+Thread      : durability 7f00f7a20700
+Internals   : 6.9.190925OSS///DurabilityService/d_durability.c/554/0/1630513186.995666962/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:19:49+0000
+Description : ================================================
+              == The service 'ddsi2' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <1735>
+Thread      : ddsi2 7f00f765b700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630513189.163246806/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:19:50+0000
+Description : ================================================
+              == The service 'durability' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <1735>
+Thread      : durability 7f00f7a20700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630513190.967289886/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:19:51+0000
+Description : ================================================
+              == The service 'splicedaemon' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <1735>
+Thread      : spliced 7f010403f700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630513191.065026481/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:19:51+0000
+Description : Removed 10295 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <1735>
+Thread      : main thread 7f01479d2740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630513191.170635174/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:19:51+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <1735>
+Thread      : main thread 7f01479d2740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630513191.261579534/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:19:51+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <1735>
+Thread      : main thread 7f01479d2740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630513191.262956647/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:19:51+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <1735>
+Thread      : main thread 7f01479d2740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630513191.264318410/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:19:51+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <1735>
+Thread      : main thread 7f01479d2740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630513191.265738856/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:20:24+0000
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 188192300 from [1,2147483647]
+Node        : e7e15352f2b8
+Process     : python3.8 <1820>
+Thread      : spliced 7f98d80de700
+Internals   : 6.9.190925OSS///The OpenSplice domain service/u_domain.c/785/0/1630513224.219702733/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:20:24+0000
+Description : Service cmsoap disabled
+Node        : e7e15352f2b8
+Process     : python3.8 <1820>
+Thread      : spliced 7f98d80de700
+Internals   : 6.9.190925OSS///OpenSplice domain service/sr_componentInfo.c/446/0/1630513224.221153993/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:20:24+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <1820>
+Thread      : spliced 7f98d80de700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630513224.222929906/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:20:24+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <1820>
+Thread      : ddsi2 7f98d32c6700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630513224.236081504/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:20:24+0000
+Description : The durability service can be identified by ID: 188192300
+Node        : e7e15352f2b8
+Process     : python3.8 <1820>
+Thread      : durability 7f98d368b700
+Internals   : 6.9.190925OSS///DurabilityService/d_durability.c/554/0/1630513224.612564478/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:20:26+0000
+Description : ================================================
+              == The service 'ddsi2' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <1820>
+Thread      : ddsi2 7f98d32c6700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630513226.734410268/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:20:28+0000
+Description : ================================================
+              == The service 'durability' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <1820>
+Thread      : durability 7f98d368b700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630513228.547497982/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:20:28+0000
+Description : ================================================
+              == The service 'splicedaemon' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <1820>
+Thread      : spliced 7f98d80de700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630513228.650642567/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:20:28+0000
+Description : Removed 10295 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <1820>
+Thread      : main thread 7f991b641740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630513228.758295696/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:20:28+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <1820>
+Thread      : main thread 7f991b641740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630513228.849978327/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:20:28+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <1820>
+Thread      : main thread 7f991b641740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630513228.851291935/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:20:28+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <1820>
+Thread      : main thread 7f991b641740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630513228.852606417/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:20:28+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <1820>
+Thread      : main thread 7f991b641740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630513228.854006358/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:21:43+0000
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 2103626788 from [1,2147483647]
+Node        : e7e15352f2b8
+Process     : python3.8 <1905>
+Thread      : spliced 7f5f86a8f700
+Internals   : 6.9.190925OSS///The OpenSplice domain service/u_domain.c/785/0/1630513303.554227797/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:21:43+0000
+Description : Service cmsoap disabled
+Node        : e7e15352f2b8
+Process     : python3.8 <1905>
+Thread      : spliced 7f5f86a8f700
+Internals   : 6.9.190925OSS///OpenSplice domain service/sr_componentInfo.c/446/0/1630513303.556602879/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:21:43+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <1905>
+Thread      : spliced 7f5f86a8f700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630513303.558196913/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:21:43+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <1905>
+Thread      : ddsi2 7f5f860b8700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630513303.571273331/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:21:43+0000
+Description : The durability service can be identified by ID: 2103626788
+Node        : e7e15352f2b8
+Process     : python3.8 <1905>
+Thread      : durability 7f5f8647d700
+Internals   : 6.9.190925OSS///DurabilityService/d_durability.c/554/0/1630513303.883636809/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:21:46+0000
+Description : ================================================
+              == The service 'ddsi2' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <1905>
+Thread      : ddsi2 7f5f860b8700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630513306.058585703/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:21:47+0000
+Description : ================================================
+              == The service 'durability' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <1905>
+Thread      : durability 7f5f8647d700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630513307.881476982/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:21:47+0000
+Description : ================================================
+              == The service 'splicedaemon' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <1905>
+Thread      : spliced 7f5f86a8f700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630513307.978870893/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:21:48+0000
+Description : Removed 10295 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <1905>
+Thread      : main thread 7f5fca422740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630513308.085770650/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:21:48+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <1905>
+Thread      : main thread 7f5fca422740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630513308.174100153/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:21:48+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <1905>
+Thread      : main thread 7f5fca422740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630513308.175461608/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:21:48+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <1905>
+Thread      : main thread 7f5fca422740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630513308.176704051/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:21:48+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <1905>
+Thread      : main thread 7f5fca422740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630513308.177833586/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:23:54+0000
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 954323881 from [1,2147483647]
+Node        : e7e15352f2b8
+Process     : python3.8 <1990>
+Thread      : spliced 7f3a0cfe7700
+Internals   : 6.9.190925OSS///The OpenSplice domain service/u_domain.c/785/0/1630513434.313685781/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:23:54+0000
+Description : Service cmsoap disabled
+Node        : e7e15352f2b8
+Process     : python3.8 <1990>
+Thread      : spliced 7f3a0cfe7700
+Internals   : 6.9.190925OSS///OpenSplice domain service/sr_componentInfo.c/446/0/1630513434.316272923/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:23:54+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <1990>
+Thread      : spliced 7f3a0cfe7700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630513434.317766586/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:23:54+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <1990>
+Thread      : ddsi2 7f3a0c610700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630513434.331924589/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:23:54+0000
+Description : The durability service can be identified by ID: 954323881
+Node        : e7e15352f2b8
+Process     : python3.8 <1990>
+Thread      : durability 7f3a0c9d5700
+Internals   : 6.9.190925OSS///DurabilityService/d_durability.c/554/0/1630513434.650169807/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:24:01+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'durability' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <1990>
+Thread      : conflictResolver 7f3a0c3bb700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630513441.977975175/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:28:50+0000
+Description : Termination request (signal 2) received from PID 1990 (self), UID 73006
+Node        : e7e15352f2b8
+Process     : python3.8 <1990>
+Thread      : signalHandler 7f3a31ceb700
+Internals   : 6.9.190925OSS///signalHandlerThread/os_signalHandler.c/632/0/1630513730.359772385/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:28:51+0000
+Description : Termination request (signal 2) received from PID 1990 (self), UID 73006
+Node        : e7e15352f2b8
+Process     : python3.8 <1990>
+Thread      : signalHandler 7f3a31ceb700
+Internals   : 6.9.190925OSS///signalHandlerThread/os_signalHandler.c/632/0/1630513731.588257034/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:28:51+0000
+Description : Termination request (signal 2) received from PID 1990 (self), UID 73006
+Node        : e7e15352f2b8
+Process     : python3.8 <1990>
+Thread      : signalHandler 7f3a31ceb700
+Internals   : 6.9.190925OSS///signalHandlerThread/os_signalHandler.c/632/0/1630513731.863821865/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:45:24+0000
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 936112543 from [1,2147483647]
+Node        : e7e15352f2b8
+Process     : python3.8 <2077>
+Thread      : spliced 7f24f4021700
+Internals   : 6.9.190925OSS///The OpenSplice domain service/u_domain.c/785/0/1630514724.410178226/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:45:24+0000
+Description : Service cmsoap disabled
+Node        : e7e15352f2b8
+Process     : python3.8 <2077>
+Thread      : spliced 7f24f4021700
+Internals   : 6.9.190925OSS///OpenSplice domain service/sr_componentInfo.c/446/0/1630514724.412525783/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:45:24+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <2077>
+Thread      : spliced 7f24f4021700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630514724.414284957/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:45:24+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <2077>
+Thread      : ddsi2 7f24eed84700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630514724.427744684/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:45:24+0000
+Description : The durability service can be identified by ID: 936112543
+Node        : e7e15352f2b8
+Process     : python3.8 <2077>
+Thread      : durability 7f24ef149700
+Internals   : 6.9.190925OSS///DurabilityService/d_durability.c/554/0/1630514724.745885918/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:45:32+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'durability' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <2077>
+Thread      : conflictResolver 7f24eeb2f700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630514732.068943097/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:46:17+0000
+Description : Termination request (signal 2) received from PID 2077 (self), UID 73006
+Node        : e7e15352f2b8
+Process     : python3.8 <2077>
+Thread      : signalHandler 7f25185cc700
+Internals   : 6.9.190925OSS///signalHandlerThread/os_signalHandler.c/632/0/1630514777.369271565/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:46:21+0000
+Description : ================================================
+              == The service 'ddsi2' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <2077>
+Thread      : ddsi2 7f24eed84700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630514781.830392623/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:46:23+0000
+Description : ================================================
+              == The service 'durability' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <2077>
+Thread      : durability 7f24ef149700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630514783.721893571/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:46:23+0000
+Description : ================================================
+              == The service 'splicedaemon' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <2077>
+Thread      : spliced 7f24f4021700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630514783.751296314/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:46:23+0000
+Description : Removed 10317 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <2077>
+Thread      : main thread 7f2536ff3740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630514783.857548435/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:46:23+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <2077>
+Thread      : main thread 7f2536ff3740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630514783.904020142/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:46:23+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <2077>
+Thread      : main thread 7f2536ff3740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630514783.905735769/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:46:23+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <2077>
+Thread      : main thread 7f2536ff3740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630514783.907497410/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:46:23+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <2077>
+Thread      : main thread 7f2536ff3740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630514783.908696583/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:46:34+0000
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 761925774 from [1,2147483647]
+Node        : e7e15352f2b8
+Process     : python3.8 <2163>
+Thread      : spliced 7f42e6096700
+Internals   : 6.9.190925OSS///The OpenSplice domain service/u_domain.c/785/0/1630514794.131414426/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:46:34+0000
+Description : Service cmsoap disabled
+Node        : e7e15352f2b8
+Process     : python3.8 <2163>
+Thread      : spliced 7f42e6096700
+Internals   : 6.9.190925OSS///OpenSplice domain service/sr_componentInfo.c/446/0/1630514794.132896401/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:46:34+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <2163>
+Thread      : spliced 7f42e6096700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630514794.134261696/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:46:34+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <2163>
+Thread      : ddsi2 7f42e56bf700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630514794.147982561/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:46:34+0000
+Description : The durability service can be identified by ID: 761925774
+Node        : e7e15352f2b8
+Process     : python3.8 <2163>
+Thread      : durability 7f42e5a84700
+Internals   : 6.9.190925OSS///DurabilityService/d_durability.c/554/0/1630514794.465345065/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:46:41+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'durability' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <2163>
+Thread      : conflictResolver 7f42e546a700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630514801.760255485/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:49:20+0000
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 1682402643 from [1,2147483647]
+Node        : e7e15352f2b8
+Process     : python3.8 <2846>
+Thread      : spliced 7f632c022700
+Internals   : 6.9.190925OSS///The OpenSplice domain service/u_domain.c/785/0/1630514960.014354537/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:49:20+0000
+Description : Service cmsoap disabled
+Node        : e7e15352f2b8
+Process     : python3.8 <2846>
+Thread      : spliced 7f632c022700
+Internals   : 6.9.190925OSS///OpenSplice domain service/sr_componentInfo.c/446/0/1630514960.015730128/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:49:20+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <2846>
+Thread      : spliced 7f632c022700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630514960.018107288/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:49:20+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <2846>
+Thread      : ddsi2 7f63265ff700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630514960.031951128/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:49:20+0000
+Description : The durability service can be identified by ID: 1682402643
+Node        : e7e15352f2b8
+Process     : python3.8 <2846>
+Thread      : durability 7f63269c4700
+Internals   : 6.9.190925OSS///DurabilityService/d_durability.c/554/0/1630514960.349191508/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:49:21+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <2846>
+Thread      : main thread 7f636e86c740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630514961.176787596/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:49:21+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <2846>
+Thread      : main thread 7f636e86c740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630514961.178415383/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:49:21+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <2846>
+Thread      : main thread 7f636e86c740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630514961.179567439/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:49:21+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <2846>
+Thread      : main thread 7f636e86c740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630514961.180702877/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:49:21+0000
+Description : ================================================
+              == The service 'ddsi2' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <2846>
+Thread      : ddsi2 7f63265ff700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630514961.212076092/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:49:23+0000
+Description : ================================================
+              == The service 'durability' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <2846>
+Thread      : durability 7f63269c4700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630514963.300568163/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:49:23+0000
+Description : ================================================
+              == The service 'splicedaemon' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <2846>
+Thread      : spliced 7f632c022700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630514963.393705878/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:49:23+0000
+Description : Removed 8644 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <2846>
+Thread      : main thread 7f636e86c740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630514963.498588141/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:49:32+0000
+Description : Missed heartbeat for node 1682402643. (DCPSPublication is complete)
+Node        : e7e15352f2b8
+Process     : python3.8 <2163>
+Thread      : OSPL Garbage Collector 7f42e5e5f700
+Internals   : 6.9.190925OSS///v_spliced/v_spliced.c/2062/769/1630514972.207207542/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:49:38+0000
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 238004887 from [1,2147483647]
+Node        : e7e15352f2b8
+Process     : python3.8 <2904>
+Thread      : spliced 7f2b04d0c700
+Internals   : 6.9.190925OSS///The OpenSplice domain service/u_domain.c/785/0/1630514978.660053555/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:49:38+0000
+Description : Service cmsoap disabled
+Node        : e7e15352f2b8
+Process     : python3.8 <2904>
+Thread      : spliced 7f2b04d0c700
+Internals   : 6.9.190925OSS///OpenSplice domain service/sr_componentInfo.c/446/0/1630514978.661925367/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:49:38+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <2904>
+Thread      : spliced 7f2b04d0c700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630514978.663637033/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:49:38+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <2904>
+Thread      : ddsi2 7f2b04335700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630514978.677009252/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:49:38+0000
+Description : The durability service can be identified by ID: 238004887
+Node        : e7e15352f2b8
+Process     : python3.8 <2904>
+Thread      : durability 7f2b046fa700
+Internals   : 6.9.190925OSS///DurabilityService/d_durability.c/554/0/1630514978.992963198/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:49:46+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'durability' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <2904>
+Thread      : conflictResolver 7f2b040e0700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630514986.693629071/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:53:26+0000
+Description : ================================================
+              == The service 'ddsi2' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <2904>
+Thread      : ddsi2 7f2b04335700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630515206.948862278/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:53:28+0000
+Description : ================================================
+              == The service 'durability' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <2904>
+Thread      : durability 7f2b046fa700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630515208.960830397/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:53:29+0000
+Description : ================================================
+              == The service 'splicedaemon' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <2904>
+Thread      : spliced 7f2b04d0c700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630515209.044654690/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:53:29+0000
+Description : Removed 10427 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <2904>
+Thread      : main thread 7f2b485aa740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630515209.150918821/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:53:29+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <2904>
+Thread      : main thread 7f2b485aa740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630515209.186801091/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:53:29+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <2904>
+Thread      : main thread 7f2b485aa740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630515209.188303671/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:53:29+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <2904>
+Thread      : main thread 7f2b485aa740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630515209.189942207/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:53:29+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <2904>
+Thread      : main thread 7f2b485aa740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630515209.191297143/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:53:37+0000
+Description : Missed heartbeat for node 238004887. (DCPSPublication is complete)
+Node        : e7e15352f2b8
+Process     : python3.8 <2163>
+Thread      : OSPL Garbage Collector 7f42e5e5f700
+Internals   : 6.9.190925OSS///v_spliced/v_spliced.c/2062/769/1630515217.975069077/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:53:40+0000
+Description : Termination request (signal 2) received from PID 2163 (self), UID 73006
+Node        : e7e15352f2b8
+Process     : python3.8 <2163>
+Thread      : signalHandler 7f430ad9a700
+Internals   : 6.9.190925OSS///signalHandlerThread/os_signalHandler.c/632/0/1630515220.555466950/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:53:41+0000
+Description : Termination request (signal 2) received from PID 2163 (self), UID 73006
+Node        : e7e15352f2b8
+Process     : python3.8 <2163>
+Thread      : signalHandler 7f430ad9a700
+Internals   : 6.9.190925OSS///signalHandlerThread/os_signalHandler.c/632/0/1630515221.070633855/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:53:56+0000
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 1350095859 from [1,2147483647]
+Node        : e7e15352f2b8
+Process     : python3.8 <2991>
+Thread      : spliced 7f6545e99700
+Internals   : 6.9.190925OSS///The OpenSplice domain service/u_domain.c/785/0/1630515236.634588796/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:53:56+0000
+Description : Service cmsoap disabled
+Node        : e7e15352f2b8
+Process     : python3.8 <2991>
+Thread      : spliced 7f6545e99700
+Internals   : 6.9.190925OSS///OpenSplice domain service/sr_componentInfo.c/446/0/1630515236.635930127/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:53:56+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <2991>
+Thread      : spliced 7f6545e99700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630515236.637254878/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:53:56+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <2991>
+Thread      : ddsi2 7f65454c2700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630515236.652616344/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:53:56+0000
+Description : The durability service can be identified by ID: 1350095859
+Node        : e7e15352f2b8
+Process     : python3.8 <2991>
+Thread      : durability 7f6545887700
+Internals   : 6.9.190925OSS///DurabilityService/d_durability.c/554/0/1630515236.967636293/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:54:04+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'durability' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <2991>
+Thread      : conflictResolver 7f654526d700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630515244.279622540/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:54:14+0000
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 1724898934 from [1,2147483647]
+Node        : e7e15352f2b8
+Process     : python3.8 <3078>
+Thread      : spliced 7f56441d9700
+Internals   : 6.9.190925OSS///The OpenSplice domain service/u_domain.c/785/0/1630515254.856156065/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:54:14+0000
+Description : Service cmsoap disabled
+Node        : e7e15352f2b8
+Process     : python3.8 <3078>
+Thread      : spliced 7f56441d9700
+Internals   : 6.9.190925OSS///OpenSplice domain service/sr_componentInfo.c/446/0/1630515254.858744713/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:54:14+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <3078>
+Thread      : spliced 7f56441d9700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630515254.860175631/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:54:14+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <3078>
+Thread      : ddsi2 7f563f3c8700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630515254.873499845/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:54:15+0000
+Description : The durability service can be identified by ID: 1724898934
+Node        : e7e15352f2b8
+Process     : python3.8 <3078>
+Thread      : durability 7f563f78d700
+Internals   : 6.9.190925OSS///DurabilityService/d_durability.c/554/0/1630515255.190014493/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:54:22+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'durability' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <3078>
+Thread      : conflictResolver 7f563f184700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630515262.880834230/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:56:01+0000
+Description : ================================================
+              == The service 'ddsi2' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <3078>
+Thread      : ddsi2 7f563f3c8700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630515361.646201670/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:56:03+0000
+Description : ================================================
+              == The service 'durability' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <3078>
+Thread      : durability 7f563f78d700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630515363.184236472/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:56:03+0000
+Description : ================================================
+              == The service 'splicedaemon' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <3078>
+Thread      : spliced 7f56441d9700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630515363.239067217/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:56:03+0000
+Description : Removed 10427 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <3078>
+Thread      : main thread 7f568764c740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630515363.345106574/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:56:03+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <3078>
+Thread      : main thread 7f568764c740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630515363.382556176/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:56:03+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <3078>
+Thread      : main thread 7f568764c740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630515363.383945122/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:56:03+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <3078>
+Thread      : main thread 7f568764c740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630515363.385482483/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:56:03+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <3078>
+Thread      : main thread 7f568764c740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630515363.386697662/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:56:10+0000
+Description : Termination request (signal 2) received from PID 2991 (self), UID 73006
+Node        : e7e15352f2b8
+Process     : python3.8 <2991>
+Thread      : signalHandler 7f656aba9700
+Internals   : 6.9.190925OSS///signalHandlerThread/os_signalHandler.c/632/0/1630515370.445936578/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:56:12+0000
+Description : Missed heartbeat for node 1724898934. (DCPSPublication is complete)
+Node        : e7e15352f2b8
+Process     : python3.8 <2991>
+Thread      : OSPL Garbage Collector 7f6545c62700
+Internals   : 6.9.190925OSS///v_spliced/v_spliced.c/2062/769/1630515372.729753316/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:56:19+0000
+Description : Termination request (signal 2) received from PID 2991 (self), UID 73006
+Node        : e7e15352f2b8
+Process     : python3.8 <2991>
+Thread      : signalHandler 7f656aba9700
+Internals   : 6.9.190925OSS///signalHandlerThread/os_signalHandler.c/632/0/1630515379.680544976/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:56:20+0000
+Description : Termination request (signal 2) received from PID 2991 (self), UID 73006
+Node        : e7e15352f2b8
+Process     : python3.8 <2991>
+Thread      : signalHandler 7f656aba9700
+Internals   : 6.9.190925OSS///signalHandlerThread/os_signalHandler.c/632/0/1630515380.144047328/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:57:52+0000
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 849458564 from [1,2147483647]
+Node        : e7e15352f2b8
+Process     : python3.8 <3165>
+Thread      : spliced 7f3506a87700
+Internals   : 6.9.190925OSS///The OpenSplice domain service/u_domain.c/785/0/1630515472.840396919/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:57:52+0000
+Description : Service cmsoap disabled
+Node        : e7e15352f2b8
+Process     : python3.8 <3165>
+Thread      : spliced 7f3506a87700
+Internals   : 6.9.190925OSS///OpenSplice domain service/sr_componentInfo.c/446/0/1630515472.842377572/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:57:52+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <3165>
+Thread      : spliced 7f3506a87700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630515472.844328550/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:57:52+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <3165>
+Thread      : ddsi2 7f35060b0700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630515472.860114526/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:57:53+0000
+Description : The durability service can be identified by ID: 849458564
+Node        : e7e15352f2b8
+Process     : python3.8 <3165>
+Thread      : durability 7f3506475700
+Internals   : 6.9.190925OSS///DurabilityService/d_durability.c/554/0/1630515473.175872895/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:58:00+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'durability' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <3165>
+Thread      : conflictResolver 7f3505e5b700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630515480.468843781/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:58:01+0000
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 1475567000 from [1,2147483647]
+Node        : e7e15352f2b8
+Process     : python3.8 <3252>
+Thread      : spliced 7f6b7401e700
+Internals   : 6.9.190925OSS///The OpenSplice domain service/u_domain.c/785/0/1630515481.363211506/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:58:01+0000
+Description : Service cmsoap disabled
+Node        : e7e15352f2b8
+Process     : python3.8 <3252>
+Thread      : spliced 7f6b7401e700
+Internals   : 6.9.190925OSS///OpenSplice domain service/sr_componentInfo.c/446/0/1630515481.364474750/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:58:01+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <3252>
+Thread      : spliced 7f6b7401e700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630515481.366228756/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:58:01+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <3252>
+Thread      : ddsi2 7f6b6f012700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630515481.387465626/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:58:01+0000
+Description : The durability service can be identified by ID: 1475567000
+Node        : e7e15352f2b8
+Process     : python3.8 <3252>
+Thread      : durability 7f6b6f3d7700
+Internals   : 6.9.190925OSS///DurabilityService/d_durability.c/554/0/1630515481.696696479/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T16:58:09+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'durability' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <3252>
+Thread      : conflictResolver 7f6b6edbd700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630515489.363179571/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:02:10+0000
+Description : ================================================
+              == The service 'ddsi2' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <3252>
+Thread      : ddsi2 7f6b6f012700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630515730.471942590/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:02:12+0000
+Description : ================================================
+              == The service 'durability' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <3252>
+Thread      : durability 7f6b6f3d7700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630515732.685519309/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:02:12+0000
+Description : ================================================
+              == The service 'splicedaemon' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <3252>
+Thread      : spliced 7f6b7401e700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630515732.730021197/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:02:12+0000
+Description : Removed 10427 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <3252>
+Thread      : main thread 7f6bb72cc740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630515732.838650683/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:02:12+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <3252>
+Thread      : main thread 7f6bb72cc740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630515732.909157298/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:02:12+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <3252>
+Thread      : main thread 7f6bb72cc740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630515732.910699938/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:02:12+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <3252>
+Thread      : main thread 7f6bb72cc740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630515732.912408985/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:02:12+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <3252>
+Thread      : main thread 7f6bb72cc740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630515732.914544304/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:02:17+0000
+Description : Termination request (signal 2) received from PID 3165 (self), UID 73006
+Node        : e7e15352f2b8
+Process     : python3.8 <3165>
+Thread      : signalHandler 7f352b797700
+Internals   : 6.9.190925OSS///signalHandlerThread/os_signalHandler.c/632/0/1630515737.238522436/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:02:17+0000
+Description : Termination request (signal 2) received from PID 3165 (self), UID 73006
+Node        : e7e15352f2b8
+Process     : python3.8 <3165>
+Thread      : signalHandler 7f352b797700
+Internals   : 6.9.190925OSS///signalHandlerThread/os_signalHandler.c/632/0/1630515737.571156946/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:02:17+0000
+Description : Termination request (signal 2) received from PID 3165 (self), UID 73006
+Node        : e7e15352f2b8
+Process     : python3.8 <3165>
+Thread      : signalHandler 7f352b797700
+Internals   : 6.9.190925OSS///signalHandlerThread/os_signalHandler.c/632/0/1630515737.892392166/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:02:21+0000
+Description : Missed heartbeat for node 1475567000. (DCPSPublication is complete)
+Node        : e7e15352f2b8
+Process     : python3.8 <3165>
+Thread      : OSPL Garbage Collector 7f3506850700
+Internals   : 6.9.190925OSS///v_spliced/v_spliced.c/2062/769/1630515741.461886637/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:02:27+0000
+Description : Termination request (signal 2) received from PID 3165 (self), UID 73006
+Node        : e7e15352f2b8
+Process     : python3.8 <3165>
+Thread      : signalHandler 7f352b797700
+Internals   : 6.9.190925OSS///signalHandlerThread/os_signalHandler.c/632/0/1630515747.298939603/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:02:34+0000
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 2055669043 from [1,2147483647]
+Node        : e7e15352f2b8
+Process     : python3.8 <3339>
+Thread      : spliced 7f186bac3700
+Internals   : 6.9.190925OSS///The OpenSplice domain service/u_domain.c/785/0/1630515754.327955876/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:02:34+0000
+Description : Service cmsoap disabled
+Node        : e7e15352f2b8
+Process     : python3.8 <3339>
+Thread      : spliced 7f186bac3700
+Internals   : 6.9.190925OSS///OpenSplice domain service/sr_componentInfo.c/446/0/1630515754.329543445/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:02:34+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <3339>
+Thread      : spliced 7f186bac3700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630515754.331890716/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:02:34+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <3339>
+Thread      : ddsi2 7f186b0ca700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630515754.329535174/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:02:34+0000
+Description : The durability service can be identified by ID: 2055669043
+Node        : e7e15352f2b8
+Process     : python3.8 <3339>
+Thread      : durability 7f186b4b1700
+Internals   : 6.9.190925OSS///DurabilityService/d_durability.c/554/0/1630515754.646743785/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:02:41+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'durability' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <3339>
+Thread      : conflictResolver 7f186ae97700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630515761.919558577/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:02:49+0000
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 1915018259 from [1,2147483647]
+Node        : e7e15352f2b8
+Process     : python3.8 <3426>
+Thread      : spliced 7f887a2ea700
+Internals   : 6.9.190925OSS///The OpenSplice domain service/u_domain.c/785/0/1630515769.657817502/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:02:49+0000
+Description : Service cmsoap disabled
+Node        : e7e15352f2b8
+Process     : python3.8 <3426>
+Thread      : spliced 7f887a2ea700
+Internals   : 6.9.190925OSS///OpenSplice domain service/sr_componentInfo.c/446/0/1630515769.659501857/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:02:49+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <3426>
+Thread      : spliced 7f887a2ea700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630515769.661429397/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:02:49+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <3426>
+Thread      : ddsi2 7f8879913700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630515769.683025955/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:02:49+0000
+Description : The durability service can be identified by ID: 1915018259
+Node        : e7e15352f2b8
+Process     : python3.8 <3426>
+Thread      : durability 7f8879cd8700
+Internals   : 6.9.190925OSS///DurabilityService/d_durability.c/554/0/1630515769.998812415/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:02:57+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'durability' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <3426>
+Thread      : conflictResolver 7f88796be700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630515777.651279498/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:15:55+0000
+Description : ================================================
+              == The service 'ddsi2' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <3426>
+Thread      : ddsi2 7f8879913700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630516555.316208880/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:15:56+0000
+Description : ================================================
+              == The service 'durability' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <3426>
+Thread      : durability 7f8879cd8700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630516556.962290144/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:15:57+0000
+Description : ================================================
+              == The service 'splicedaemon' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <3426>
+Thread      : spliced 7f887a2ea700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630516557.014698644/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:15:57+0000
+Description : Removed 10439 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <3426>
+Thread      : main thread 7f88bdbc8740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630516557.120225142/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:15:57+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <3426>
+Thread      : main thread 7f88bdbc8740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630516557.156331588/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:15:57+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <3426>
+Thread      : main thread 7f88bdbc8740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630516557.157698541/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:15:57+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <3426>
+Thread      : main thread 7f88bdbc8740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630516557.159365485/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:15:57+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <3426>
+Thread      : main thread 7f88bdbc8740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630516557.160606358/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:16:03+0000
+Description : Termination request (signal 2) received from PID 3339 (self), UID 73006
+Node        : e7e15352f2b8
+Process     : python3.8 <3339>
+Thread      : signalHandler 7f188c7c9700
+Internals   : 6.9.190925OSS///signalHandlerThread/os_signalHandler.c/632/0/1630516563.826515649/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:16:06+0000
+Description : Missed heartbeat for node 1915018259. (DCPSPublication is complete)
+Node        : e7e15352f2b8
+Process     : python3.8 <3339>
+Thread      : OSPL Garbage Collector 7f186b88c700
+Internals   : 6.9.190925OSS///v_spliced/v_spliced.c/2062/769/1630516566.316044942/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:16:08+0000
+Description : Termination request (signal 2) received from PID 3339 (self), UID 73006
+Node        : e7e15352f2b8
+Process     : python3.8 <3339>
+Thread      : signalHandler 7f188c7c9700
+Internals   : 6.9.190925OSS///signalHandlerThread/os_signalHandler.c/632/0/1630516568.179800494/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:16:08+0000
+Description : Termination request (signal 2) received from PID 3339 (self), UID 73006
+Node        : e7e15352f2b8
+Process     : python3.8 <3339>
+Thread      : signalHandler 7f188c7c9700
+Internals   : 6.9.190925OSS///signalHandlerThread/os_signalHandler.c/632/0/1630516568.482795383/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:16:09+0000
+Description : Termination request (signal 2) received from PID 3339 (self), UID 73006
+Node        : e7e15352f2b8
+Process     : python3.8 <3339>
+Thread      : signalHandler 7f188c7c9700
+Internals   : 6.9.190925OSS///signalHandlerThread/os_signalHandler.c/632/0/1630516569.828118219/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:16:12+0000
+Description : Termination request (signal 2) received from PID 3339 (self), UID 73006
+Node        : e7e15352f2b8
+Process     : python3.8 <3339>
+Thread      : signalHandler 7f188c7c9700
+Internals   : 6.9.190925OSS///signalHandlerThread/os_signalHandler.c/632/0/1630516572.740663809/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:16:17+0000
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 540627902 from [1,2147483647]
+Node        : e7e15352f2b8
+Process     : python3.8 <3513>
+Thread      : spliced 7f42b7670700
+Internals   : 6.9.190925OSS///The OpenSplice domain service/u_domain.c/785/0/1630516577.391369954/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:16:17+0000
+Description : Service cmsoap disabled
+Node        : e7e15352f2b8
+Process     : python3.8 <3513>
+Thread      : spliced 7f42b7670700
+Internals   : 6.9.190925OSS///OpenSplice domain service/sr_componentInfo.c/446/0/1630516577.392821642/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:16:17+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <3513>
+Thread      : spliced 7f42b7670700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630516577.395029207/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:16:17+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <3513>
+Thread      : ddsi2 7f42b6c99700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630516577.409187571/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:16:17+0000
+Description : The durability service can be identified by ID: 540627902
+Node        : e7e15352f2b8
+Process     : python3.8 <3513>
+Thread      : durability 7f42b705e700
+Internals   : 6.9.190925OSS///DurabilityService/d_durability.c/554/0/1630516577.723470413/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:16:25+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'durability' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <3513>
+Thread      : conflictResolver 7f42b6a44700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630516585.029448982/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:16:35+0000
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 1649919396 from [1,2147483647]
+Node        : e7e15352f2b8
+Process     : python3.8 <3600>
+Thread      : spliced 7f646bdeb700
+Internals   : 6.9.190925OSS///The OpenSplice domain service/u_domain.c/785/0/1630516595.054664947/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:16:35+0000
+Description : Service cmsoap disabled
+Node        : e7e15352f2b8
+Process     : python3.8 <3600>
+Thread      : spliced 7f646bdeb700
+Internals   : 6.9.190925OSS///OpenSplice domain service/sr_componentInfo.c/446/0/1630516595.056687246/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:16:35+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <3600>
+Thread      : spliced 7f646bdeb700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630516595.058976195/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:16:35+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <3600>
+Thread      : ddsi2 7f646b414700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630516595.072700509/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:16:35+0000
+Description : The durability service can be identified by ID: 1649919396
+Node        : e7e15352f2b8
+Process     : python3.8 <3600>
+Thread      : durability 7f646b7d9700
+Internals   : 6.9.190925OSS///DurabilityService/d_durability.c/554/0/1630516595.389236531/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:16:43+0000
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'durability' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : e7e15352f2b8
+Process     : python3.8 <3600>
+Thread      : conflictResolver 7f646b1bf700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/266/0/1630516603.087060152/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:17:36+0000
+Description : ================================================
+              == The service 'ddsi2' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <3513>
+Thread      : ddsi2 7f42b6c99700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630516656.603535636/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:17:38+0000
+Description : ================================================
+              == The service 'durability' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <3513>
+Thread      : durability 7f42b705e700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630516658.759922006/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:17:38+0000
+Description : ================================================
+              == The service 'ddsi2' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <3600>
+Thread      : ddsi2 7f646b414700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630516658.769899774/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:17:38+0000
+Description : ================================================
+              == The service 'splicedaemon' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <3513>
+Thread      : spliced 7f42b7670700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630516658.797477867/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:17:38+0000
+Description : Removed 10420 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <3513>
+Thread      : main thread 7f42fed89740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630516658.902148796/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:17:38+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <3513>
+Thread      : main thread 7f42fed89740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630516658.939707611/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:17:38+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <3513>
+Thread      : main thread 7f42fed89740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630516658.941358789/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:17:38+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <3513>
+Thread      : main thread 7f42fed89740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630516658.942950601/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:17:38+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <3513>
+Thread      : main thread 7f42fed89740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630516658.944223144/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:17:40+0000
+Description : ================================================
+              == The service 'durability' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <3600>
+Thread      : durability 7f646b7d9700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630516660.375870156/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:17:40+0000
+Description : ================================================
+              == The service 'splicedaemon' has now terminated. 
+              ================================================
+Node        : e7e15352f2b8
+Process     : python3.8 <3600>
+Thread      : spliced 7f646bdeb700
+Internals   : 6.9.190925OSS///v_serviceChangeState/v_service.c/273/0/1630516660.475226586/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:17:40+0000
+Description : Removed 10393 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <3600>
+Thread      : main thread 7f64b368d740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630516660.581716229/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:17:40+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <3600>
+Thread      : main thread 7f64b368d740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630516660.620354764/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:17:40+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <3600>
+Thread      : main thread 7f64b368d740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630516660.622095169/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:17:40+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <3600>
+Thread      : main thread 7f64b368d740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630516660.624201581/0
+========================================================================================
+Report      : INFO
+Date        : 2021-09-01T17:17:40+0000
+Description : Removed 1228 objects
+Node        : e7e15352f2b8
+Process     : python3.8 <3600>
+Thread      : main thread 7f64b368d740
+Internals   : 6.9.190925OSS///Database close/c_base.c/3272/0/1630516660.625683954/0
