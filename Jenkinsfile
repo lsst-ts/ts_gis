@@ -45,6 +45,9 @@ pipeline {
                         cd /home/saluser/repos/ts_idl
                         /home/saluser/.checkout_repo.sh ${work_branches}
                         git pull
+                        cd /home/saluser/repos/ts_config_ocs
+                        /home/saluser/.checkout_repo.sh ${work_branches}
+                        git pull
                         make_idl_files.py GIS
                     """
                 }
@@ -61,6 +64,7 @@ pipeline {
                 withEnv(["HOME=${env.WORKSPACE}"]) {
                     sh """
                         source /home/saluser/.setup_dev.sh || echo loading env failed. Continuing...
+                        pip install pymodbus
                         setup -k -r .
                         pytest --cov-report html --cov=${env.MODULE_NAME} --junitxml=${env.XML_REPORT}
                     """

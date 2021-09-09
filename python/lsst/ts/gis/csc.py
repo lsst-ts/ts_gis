@@ -6,6 +6,7 @@ from lsst.ts import salobj
 
 from .config import CONFIG_SCHEMA
 from .component import GISComponent
+from . import __version__
 
 
 class GISCsc(salobj.ConfigurableCsc):
@@ -24,6 +25,9 @@ class GISCsc(salobj.ConfigurableCsc):
     simulator : `None`
     telemetry_task : `asyncio.Future`
     """
+
+    valid_simulation_modes = [0]
+    version = __version__
 
     def __init__(
         self,
