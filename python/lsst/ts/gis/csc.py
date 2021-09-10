@@ -50,7 +50,7 @@ class GISCsc(salobj.ConfigurableCsc):
         self.telemetry_interval = None
         self.telemetry_task = salobj.make_done_future()
 
-    async def telemetry(self):
+    async def telemetry_loop(self):
         """Implement the telemetry feed for the GIS."""
         while True:
             self.component.update_status()
@@ -70,7 +70,7 @@ class GISCsc(salobj.ConfigurableCsc):
             if not self.connected:
                 self.component.connect()
             if self.telemetry_task.done():
-                self.telemetry_task = asyncio.create_task(self.telemetry())
+                self.telemetry_task = asyncio.create_task(self.telemetry_loop())
         else:
             if self.simulator is not None:
                 await self.simulator.close()

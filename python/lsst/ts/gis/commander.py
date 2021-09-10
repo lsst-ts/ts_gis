@@ -49,7 +49,18 @@ class ModbusCommander:
             self.client = None
 
     def read(self):
-        """Read the holding registers."""
+        """Read the holding registers.
+
+        Returns
+        -------
+        reply : `HoldRegisterReply`
+            The reply from the modbus server.
+
+        Raises
+        ------
+        `RuntimeError`
+            Raised when the client is not connected to the modbus server.
+        """
         if self.connected:
             reply = self.client.read_holding_registers(0, 29)
             return reply
@@ -57,7 +68,18 @@ class ModbusCommander:
             raise RuntimeError("Commander is not connected.")
 
     def get_raw_string(self, reply):
-        """Generate the raw system byte status of the GIS."""
+        """Generate the raw system byte status of the GIS.
+
+        Parameters
+        ----------
+        reply : `HoldRegisterReply`
+            The reply from the modbus server.
+
+        Returns
+        -------
+        raw_status : `bytearray`
+            The unfiltered response of the reply in a byte array.
+        """
         raw_status = bytearray()
         for data in reply.registers:
             raw_status += data.to_bytes(2, sys.byteorder)

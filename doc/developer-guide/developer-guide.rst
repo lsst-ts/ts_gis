@@ -17,6 +17,9 @@ Dependencies
 
 * `SAL <https://ts-sal.lsst.io>`_ - v5.x
 * ts_salobj - v6.x
+* ts_xml - v10
+* ts_idl - >v3.1.3
+* pymodbus - v2.5.2
 
 .. Linking to the previous versions may also be worthwhile, depending on the CSC
 

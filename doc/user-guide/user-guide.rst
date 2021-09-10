@@ -44,16 +44,15 @@
 GIS User Guide
 #######################
 
-.. Update links and labels below
-.. image:: https://img.shields.io/badge/GitHub-ts_athexapod-green.svg
-    :target: https://github.com/lsst-ts/ts_athexapod
-.. image:: https://img.shields.io/badge/Jenkins-ts_athexapod-green.svg
-    :target: https://tssw-ci.lsst.org/job/LSST_Telescope-and-Site/job/ts_athexapod/
-.. image:: https://img.shields.io/badge/Jira-ts_athexapod-green.svg
-    :target: https://jira.lsstcorp.org/issues/?jql=labels+%3D+ts_athexapod
-.. image:: https://img.shields.io/badge/ts_xml-ATHexapod-green.svg
-    :target: https://ts-xml.lsst.io/sal_interfaces/ATHexapod.html
 
+.. image:: https://img.shields.io/badge/SAL-API-gray.svg
+    :target: https://ts-xml.lsst.io/sal_interfaces/GIS.html
+.. image:: https://img.shields.io/badge/GitHub-gray.svg
+    :target: https://github.com/lsst-ts/ts_gis
+.. image:: https://img.shields.io/badge/Jira-gray.svg
+    :target: https://jira.lsstcorp.org/issues/?jql=labels+%3D+ts_gis
+.. image:: https://img.shields.io/badge/Jenkins-gray.svg
+    :target: https://tssw-ci.lsst.org/job/LSST_Telescope-and-Site/job/ts_gis/
 
 The GIS outputs two events via SAL DDS.
 The raw status contains the whole 29 words of the GIS into one bytearray.

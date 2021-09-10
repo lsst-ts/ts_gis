@@ -28,7 +28,13 @@ class GISComponent:
 
     @property
     def connected(self):
-        """Return if the component is connected or not."""
+        """Return if the component is connected or not.
+
+        Returns
+        -------
+        `bool`
+            A boolean which determines the connection status of the client.
+        """
         if self.commander is not None:
             return self.commander.connected
         else:
