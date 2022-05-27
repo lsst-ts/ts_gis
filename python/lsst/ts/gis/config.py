@@ -13,16 +13,13 @@ properties:
   telemetry_interval:
     description: The interval for the loop to query the device.
     type: number
-    default: 0.5
   host:
     description: The host of the modbus server
     type: string
     format: hostname
-    default: 192.168.180.1
   port:
     description: The port of the modbus server.
     type: integer
-    default: 502
 required: [telemetry_interval]
 additionalProperties: false
 """

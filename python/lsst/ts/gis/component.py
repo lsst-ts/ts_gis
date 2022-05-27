@@ -51,18 +51,20 @@ class GISComponent:
             self.commander.disconnect()
             self.commander = None
 
-    def update_status(self):
+    async def update_status(self):
         """Update the status of the GIS."""
         reply = self.commander.read()
         raw_status = self.commander.get_raw_string(reply)
         if self.raw_status != raw_status:
-            self.csc.evt_rawStatus.set_put(status=raw_status)
+            await self.csc.evt_rawStatus.set_write(status=raw_status)
         self.raw_status = raw_status
         for index, (current_subsystem, old_subsystem) in enumerate(
             itertools.zip_longest(reply.registers, self.system_status, fillvalue=None)
         ):
             if current_subsystem != old_subsystem:
-                self.csc.evt_systemStatus.set_put(index=index, status=current_subsystem)
+                await self.csc.evt_systemStatus.set_write(
+                    index=index, status=current_subsystem
+                )
         self.system_status = reply.registers
 
     def configure(self, config):

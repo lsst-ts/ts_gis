@@ -2,7 +2,7 @@ __all__ = ["GISCsc"]
 
 import asyncio
 
-from lsst.ts import salobj
+from lsst.ts import salobj, utils
 
 from .config import CONFIG_SCHEMA
 from .component import GISComponent
@@ -32,7 +32,7 @@ class GISCsc(salobj.ConfigurableCsc):
     def __init__(
         self,
         initial_state=salobj.State.STANDBY,
-        settings_to_apply=None,
+        override=None,
         simulation_mode=False,
         config_dir=None,
     ) -> None:
@@ -41,19 +41,19 @@ class GISCsc(salobj.ConfigurableCsc):
             index=None,
             config_schema=CONFIG_SCHEMA,
             initial_state=initial_state,
-            settings_to_apply=settings_to_apply,
+            override=override,
             simulation_mode=simulation_mode,
             config_dir=config_dir,
         )
         self.component = GISComponent(self)
         self.simulator = None
         self.telemetry_interval = None
-        self.telemetry_task = salobj.make_done_future()
+        self.telemetry_task = utils.make_done_future()
 
     async def telemetry_loop(self):
         """Implement the telemetry feed for the GIS."""
         while True:
-            self.component.update_status()
+            await self.component.update_status()
             await asyncio.sleep(self.telemetry_interval)
 
     @property

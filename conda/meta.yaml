@@ -17,6 +17,7 @@ build:
         - PYTHON_BUILD_LOCATION
         - LSST_DDS_DOMAIN
         - TS_CONFIG_OCS_DIR
+        - LSST_SITE
 
 test:
     requires:
@@ -29,7 +30,6 @@ test:
         - python
         - bin
         - tests
-        - schema
         - setup.cfg
     commands:
         - py.test
