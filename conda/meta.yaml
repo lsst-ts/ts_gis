@@ -8,6 +8,8 @@ source:
 
 build:
     script: python -m pip install --no-deps --ignore-installed .
+    entry_points:
+        - run_gis = lsst.ts.gis.cli:execute_csc
     script_env:
         - PATH
         - PYTHONPATH
@@ -21,7 +23,7 @@ build:
 
 test:
     requires:
-        - ts-conda-build
+        - ts-conda-build =0.3
         - ts-dds
         - ts-idl {{ idl_version }}
         - ts-salobj {{ salobj_version }}
@@ -31,6 +33,7 @@ test:
         - bin
         - tests
         - setup.cfg
+        - pyproject.toml
     commands:
         - py.test
 

@@ -36,7 +36,7 @@ class GISCscTestCase(unittest.IsolatedAsyncioTestCase, salobj.BaseCscTestCase):
     async def test_bin_script(self):
         await self.check_bin_script(
             name="GIS",
-            exe_name="run_gis_csc.py",
+            exe_name="run_gis",
             index=None,
         )
 
