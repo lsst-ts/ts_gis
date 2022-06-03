@@ -10,6 +10,11 @@ Version History
 .. No new work should be required in order to complete this section.
 .. Below is an example of a version history format.
 
+v0.3.0
+======
+* Use pyproject.toml
+* Write documentation
+
 v0.2.0
 ======
 * Update CSC to support salobj 7
