@@ -8,7 +8,7 @@ from lsst.ts import salobj, gis
 TEST_CONFIG_DIR = pathlib.Path(__file__).parents[1].joinpath("tests", "data", "config")
 
 
-class GISCscTestCase(unittest.IsolatedAsyncioTestCase, salobj.BaseCscTestCase):
+class GISCscTestCase(salobj.BaseCscTestCase, unittest.IsolatedAsyncioTestCase):
     def setUp(self) -> None:
         os.environ["LSST_SITE"] = "gis"
         return super().setUp()
