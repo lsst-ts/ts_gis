@@ -10,6 +10,11 @@ Version History
 .. No new work should be required in order to complete this section.
 .. Below is an example of a version history format.
 
+v0.4.0
+======
+* Swap ts-salobj base case.
+* Fix import path for pymodbus.
+
 v0.3.0
 ======
 * Use pyproject.toml
