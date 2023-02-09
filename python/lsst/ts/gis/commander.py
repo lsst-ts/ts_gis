@@ -1,7 +1,8 @@
 __all__ = ["ModbusCommander"]
 
 import sys
-from pymodbus.client.sync import ModbusTcpClient
+
+from pymodbus.client import ModbusTcpClient
 
 
 class ModbusCommander:
