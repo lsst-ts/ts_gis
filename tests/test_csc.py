@@ -1,9 +1,9 @@
-import unittest
-import pathlib
 import os
+import pathlib
+import unittest
 
-from lsst.ts import salobj, gis
-
+import pytest
+from lsst.ts import gis, salobj
 
 TEST_CONFIG_DIR = pathlib.Path(__file__).parents[1].joinpath("tests", "data", "config")
 
@@ -17,7 +17,7 @@ class GISCscTestCase(salobj.BaseCscTestCase, unittest.IsolatedAsyncioTestCase):
         self,
         initial_state,
         config_dir=TEST_CONFIG_DIR,
-        simulation_mode=0,
+        simulation_mode=1,
         override="",
     ):
         return gis.GISCsc(
@@ -28,9 +28,13 @@ class GISCscTestCase(salobj.BaseCscTestCase, unittest.IsolatedAsyncioTestCase):
         )
 
     async def test_standard_state_transitions(self):
-        async with self.make_csc(initial_state=salobj.State.STANDBY):
+        async with self.make_csc(
+            initial_state=salobj.State.STANDBY,
+            simulation_mode=1,
+            config_dir=TEST_CONFIG_DIR,
+        ):
             await self.check_standard_state_transitions(
-                enabled_commands=[], override=""
+                enabled_commands=[], override="", timeout=20
             )
 
     async def test_bin_script(self):
@@ -39,6 +43,18 @@ class GISCscTestCase(salobj.BaseCscTestCase, unittest.IsolatedAsyncioTestCase):
             exe_name="run_gis",
             index=None,
         )
+
+    @pytest.mark.skip("Update client to async.")
+    async def test_telemetry(self):
+        async with self.make_csc(
+            initial_state=salobj.State.ENABLED,
+            simulation_mode=1,
+            config_dir=TEST_CONFIG_DIR,
+        ):
+            await self.remote.evt_rawStatus.aget(timeout=20)
+            system_status = await self.remote.evt_systemStatus.aget(timeout=20)
+            assert system_status.index == 28
+            assert system_status.status == 1
 
 
 if __name__ == "__main__":
