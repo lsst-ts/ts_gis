@@ -2,7 +2,6 @@ import os
 import pathlib
 import unittest
 
-import pytest
 from lsst.ts import gis, salobj
 
 TEST_CONFIG_DIR = pathlib.Path(__file__).parents[1].joinpath("tests", "data", "config")
@@ -44,7 +43,6 @@ class GISCscTestCase(salobj.BaseCscTestCase, unittest.IsolatedAsyncioTestCase):
             index=None,
         )
 
-    @pytest.mark.skip("Update client to async.")
     async def test_telemetry(self):
         async with self.make_csc(
             initial_state=salobj.State.ENABLED,

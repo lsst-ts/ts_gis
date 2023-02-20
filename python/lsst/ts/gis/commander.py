@@ -3,7 +3,7 @@ __all__ = ["ModbusCommander"]
 import logging
 import sys
 
-from pymodbus.client import ModbusTcpClient
+from pymodbus.client import AsyncModbusTcpClient
 from pymodbus.exceptions import ModbusIOException
 
 
@@ -13,13 +13,18 @@ class ModbusCommander:
     Parameters
     ----------
     host : `str`
+        The modbus host to connect to.
     port : `int`
+        The modbus port to connect to.
 
     Attributes
     ----------
     port : `int`
+        The modbus port.
     host : `str`
-    client : `pymodbus.client.sync.ModbusTcpClient`
+        The modbus host.
+    client : `pymodbus.client.AsyncModbusTcpClient`
+        The pymodbus async client.
     """
 
     def __init__(self, host, port) -> None:
@@ -35,31 +40,34 @@ class ModbusCommander:
         Returns
         -------
         `bool`
+            Is the client connected?
         """
-        if self.client is None or not self.client.is_socket_open():
+        if self.client is None or not self.client.connected:
             return False
         else:
             return True
 
-    def connect(self):
+    async def connect(self):
         """Connect to the commander."""
         if not self.connected:
-            self.client = ModbusTcpClient(self.host, self.port, timeout=10)
-            self.client.connect()
+            self.client = AsyncModbusTcpClient(self.host, self.port, timeout=10)
+            await self.client.connect()
             self.log.info("Client connected.")
 
-    def disconnect(self):
+    async def disconnect(self):
         """Disconnect from the commander."""
         if self.connected:
+            await self.client.close()
             self.client = None
 
-    def read(self):
+    async def read(self):
         """Read the holding registers.
 
         Returns
         -------
-        reply : `HoldRegisterReply`
+        reply : `ReadHoldingRegistersResponse` or `ModbusIOException`
             The reply from the modbus server.
+            Can also be a ModbusIOException.
 
         Raises
         ------
@@ -67,7 +75,7 @@ class ModbusCommander:
             Raised when the client is not connected to the modbus server.
         """
         if self.connected:
-            reply = self.client.read_holding_registers(0, 29)
+            reply = await self.client.read_holding_registers(0, 29)
             if not isinstance(reply, ModbusIOException):
                 return reply
             else:
@@ -80,7 +88,7 @@ class ModbusCommander:
 
         Parameters
         ----------
-        reply : `HoldRegisterReply`
+        reply : `ReadHoldingRegisterResponse`
             The reply from the modbus server.
 
         Returns
