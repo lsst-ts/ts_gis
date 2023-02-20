@@ -1,8 +1,10 @@
 __all__ = ["ModbusCommander"]
 
+import logging
 import sys
 
 from pymodbus.client import ModbusTcpClient
+from pymodbus.exceptions import ModbusIOException
 
 
 class ModbusCommander:
@@ -23,6 +25,7 @@ class ModbusCommander:
     def __init__(self, host, port) -> None:
         self.port = port
         self.host = host
+        self.log = logging.getLogger(__name__)
         self.client = None
 
     @property
@@ -33,7 +36,7 @@ class ModbusCommander:
         -------
         `bool`
         """
-        if self.client is None or not self.client.is_socket_open:
+        if self.client is None or not self.client.is_socket_open():
             return False
         else:
             return True
@@ -41,8 +44,9 @@ class ModbusCommander:
     def connect(self):
         """Connect to the commander."""
         if not self.connected:
-            self.client = ModbusTcpClient(self.host, self.port)
+            self.client = ModbusTcpClient(self.host, self.port, timeout=10)
             self.client.connect()
+            self.log.info("Client connected.")
 
     def disconnect(self):
         """Disconnect from the commander."""
@@ -64,7 +68,10 @@ class ModbusCommander:
         """
         if self.connected:
             reply = self.client.read_holding_registers(0, 29)
-            return reply
+            if not isinstance(reply, ModbusIOException):
+                return reply
+            else:
+                self.log.exception(f"{reply.string}")
         else:
             raise RuntimeError("Commander is not connected.")
 
@@ -82,6 +89,9 @@ class ModbusCommander:
             The unfiltered response of the reply in a byte array.
         """
         raw_status = bytearray()
-        for data in reply.registers:
-            raw_status += data.to_bytes(2, sys.byteorder)
-        return raw_status
+        try:
+            for data in reply.registers:
+                raw_status += data.to_bytes(2, sys.byteorder)
+            return raw_status
+        except Exception:
+            self.log.exception("Something went wrong.")
