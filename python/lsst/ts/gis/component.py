@@ -11,14 +11,19 @@ class GISComponent:
 
     Parameters
     ----------
-    csc
+    csc : `GISCsc`
+        The GIS CSC.
 
     Attributes
     ----------
-    commander
-    csc
-    raw_status
-    system_status
+    commander : `ModbusCommander`
+        The modbus commander.
+    csc : `GISCsc`
+        The GIS CSC.
+    raw_status : `bytearray`
+        The bitarray representation of the status.
+    system_status : `list` of `int`
+        The statuses of the entire GIS.
     """
 
     def __init__(self, csc) -> None:
@@ -42,20 +47,20 @@ class GISComponent:
         else:
             return False
 
-    def connect(self):
+    async def connect(self):
         """Connect to the commander."""
         self.commander = ModbusCommander(self.config.host, self.config.port)
-        self.commander.connect()
+        await self.commander.connect()
 
-    def disconnect(self):
+    async def disconnect(self):
         """Disconnect from the commander."""
         if self.commander is not None:
-            self.commander.disconnect()
+            await self.commander.disconnect()
             self.commander = None
 
     async def update_status(self):
         """Update the status of the GIS."""
-        reply = self.commander.read()
+        reply = await self.commander.read()
         if reply is not None:
             raw_status = self.commander.get_raw_string(reply)
             if self.raw_status != raw_status:
