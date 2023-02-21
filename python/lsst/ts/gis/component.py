@@ -49,7 +49,7 @@ class GISComponent:
 
     async def connect(self):
         """Connect to the commander."""
-        self.commander = ModbusCommander(self.config.host, self.config.port)
+        self.commander = ModbusCommander(self.config, self.csc.simulation_mode)
         await self.commander.connect()
 
     async def disconnect(self):

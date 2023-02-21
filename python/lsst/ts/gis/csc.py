@@ -85,9 +85,16 @@ class GISCsc(salobj.ConfigurableCsc):
     async def handle_summary_state(self):
         """Handle summary state transitions.
 
+        When transitioning to disabled or enabled state.
         * Connect to the client if not connected.
         * Start the mock server if in simulation mode and not started.
         * Start the telemetry loop if not started.
+
+        When outside of the disabled or enabled state.
+
+        * disconnect from the client if connected.
+        * Close the mock server if running.
+        * Cancel the telemetry loop.
         """
         if self.disabled_or_enabled:
             if self.simulation_mode and self.mock_server is None:
