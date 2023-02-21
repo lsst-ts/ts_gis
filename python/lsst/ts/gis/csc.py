@@ -31,7 +31,7 @@ class GISCsc(salobj.ConfigurableCsc):
 
     Attributes
     ----------
-    mock_server : `ModbusTcpServer`
+    mock_server : `pymodbus.server.ModbusTcpServer`
         The mock modbus server.
         Just returns static values.
     component : `GISComponent`

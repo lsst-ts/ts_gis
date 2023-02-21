@@ -8,8 +8,11 @@ description = "GIS is a Commandable SAL Component for the `Vera C. Rubin Observa
 license = { text = "GPL" }
 dependencies = ["pymodbus"]
 readme = "README.rst"
-urls = { documentation = "https://ts-gis.lsst.io", source_code = "https://github.com/lsst-ts/ts_gis"}
 dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://ts-gis.lsst.io"
+Source = "https://github.com/lsst-ts/ts_gis"
 
 [tool.setuptools.dynamic]
 version = { attr = "setuptools_scm.get_version" }
