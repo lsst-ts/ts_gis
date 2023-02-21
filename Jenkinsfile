@@ -64,7 +64,6 @@ pipeline {
                 withEnv(["HOME=${env.WORKSPACE}"]) {
                     sh """
                         source /home/saluser/.setup_dev.sh || echo loading env failed. Continuing...
-                        pip install .
                         setup -k -r .
                         pytest --cov-report html --cov=${env.MODULE_NAME} --junitxml=${env.XML_REPORT}
                     """
@@ -78,7 +77,7 @@ pipeline {
                         sh """
                             source /home/saluser/.setup_dev.sh || echo loading env failed. Continuing...
                             setup -kr .
-                            pip install -r doc/requirements.txt
+                            pip install .
                             package-docs build
                             ltd upload --product ts-gis --git-ref ${GIT_BRANCH} --dir doc/_build/html
                         """
@@ -90,7 +89,6 @@ pipeline {
 
     post {
         always {
-
             // The path of xml needed by JUnit is relative to
             // the workspace.
             junit 'jenkinsReport/*.xml'
