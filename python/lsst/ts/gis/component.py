@@ -1,6 +1,7 @@
 __all__ = ["GISComponent"]
 
 import itertools
+import logging
 
 from .commander import ModbusCommander
 
@@ -10,14 +11,19 @@ class GISComponent:
 
     Parameters
     ----------
-    csc
+    csc : `GISCsc`
+        The GIS CSC.
 
     Attributes
     ----------
-    commander
-    csc
-    raw_status
-    system_status
+    commander : `ModbusCommander`
+        The modbus commander.
+    csc : `GISCsc`
+        The GIS CSC.
+    raw_status : `bytearray`
+        The bitarray representation of the status.
+    system_status : `list` of `int`
+        The statuses of the entire GIS.
     """
 
     def __init__(self, csc) -> None:
@@ -25,6 +31,7 @@ class GISComponent:
         self.csc = csc
         self.raw_status = None
         self.system_status = []
+        self.log = logging.getLogger(__name__)
 
     @property
     def connected(self):
@@ -40,32 +47,35 @@ class GISComponent:
         else:
             return False
 
-    def connect(self):
+    async def connect(self):
         """Connect to the commander."""
-        self.commander = ModbusCommander(self.config.host, self.config.port)
-        self.commander.connect()
+        self.commander = ModbusCommander(self.config, self.csc.simulation_mode)
+        await self.commander.connect()
 
-    def disconnect(self):
+    async def disconnect(self):
         """Disconnect from the commander."""
         if self.commander is not None:
-            self.commander.disconnect()
+            await self.commander.disconnect()
             self.commander = None
 
     async def update_status(self):
         """Update the status of the GIS."""
-        reply = self.commander.read()
-        raw_status = self.commander.get_raw_string(reply)
-        if self.raw_status != raw_status:
-            await self.csc.evt_rawStatus.set_write(status=raw_status)
-        self.raw_status = raw_status
-        for index, (current_subsystem, old_subsystem) in enumerate(
-            itertools.zip_longest(reply.registers, self.system_status, fillvalue=None)
-        ):
-            if current_subsystem != old_subsystem:
-                await self.csc.evt_systemStatus.set_write(
-                    index=index, status=current_subsystem
+        reply = await self.commander.read()
+        if reply is not None:
+            raw_status = self.commander.get_raw_string(reply)
+            if self.raw_status != raw_status:
+                await self.csc.evt_rawStatus.set_write(status=raw_status)
+            self.raw_status = raw_status
+            for index, (current_subsystem, old_subsystem) in enumerate(
+                itertools.zip_longest(
+                    reply.registers, self.system_status, fillvalue=None
                 )
-        self.system_status = reply.registers
+            ):
+                if current_subsystem != old_subsystem:
+                    await self.csc.evt_systemStatus.set_write(
+                        index=index, status=current_subsystem
+                    )
+            self.system_status = reply.registers
 
     def configure(self, config):
         """Configure the GIS."""

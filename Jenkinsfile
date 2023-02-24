@@ -9,7 +9,7 @@ pipeline {
         docker {
             alwaysPull true
             image 'lsstts/develop-env:develop'
-            args "-u root --entrypoint=''"
+            args "--entrypoint=''"
         }
     }
 
@@ -64,7 +64,6 @@ pipeline {
                 withEnv(["HOME=${env.WORKSPACE}"]) {
                     sh """
                         source /home/saluser/.setup_dev.sh || echo loading env failed. Continuing...
-                        pip install .
                         setup -k -r .
                         pytest --cov-report html --cov=${env.MODULE_NAME} --junitxml=${env.XML_REPORT}
                     """
@@ -77,8 +76,8 @@ pipeline {
                     withEnv(["HOME=${env.WORKSPACE}"]) {
                         sh """
                             source /home/saluser/.setup_dev.sh || echo loading env failed. Continuing...
+                            setup -kr .
                             pip install .
-                            pip install -r doc/requirements.txt
                             package-docs build
                             ltd upload --product ts-gis --git-ref ${GIT_BRANCH} --dir doc/_build/html
                         """
@@ -90,12 +89,6 @@ pipeline {
 
     post {
         always {
-            // Change the ownership of workspace to Jenkins for the clean up
-            // This is a "work around" method
-            withEnv(["HOME=${env.WORKSPACE}"]) {
-                sh 'chown -R 1003:1003 ${HOME}/'
-            }
-
             // The path of xml needed by JUnit is relative to
             // the workspace.
             junit 'jenkinsReport/*.xml'

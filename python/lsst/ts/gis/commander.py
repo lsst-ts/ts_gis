@@ -1,7 +1,12 @@
 __all__ = ["ModbusCommander"]
 
+import logging
+import os
 import sys
-from pymodbus.client.sync import ModbusTcpClient
+
+import sshtunnel
+from pymodbus.client import AsyncModbusTcpClient
+from pymodbus.exceptions import ModbusIOException
 
 
 class ModbusCommander:
@@ -9,19 +14,39 @@ class ModbusCommander:
 
     Parameters
     ----------
-    host : `str`
-    port : `int`
+    config : `types.SimpleNamespace`
+        The configuration.
+    simulation_mode : `int`
+        Is the GIS simulated?
 
     Attributes
     ----------
-    port : `int`
-    host : `str`
-    client : `pymodbus.client.sync.ModbusTcpClient`
+    modbus_port : `int`
+        The modbus port.
+    modbus_host : `str`
+        The modbus host.
+    bastion_host : `str`
+        The bastion server hostname.
+    bastion_port : `int`
+        The bastion server's ssh port.
+    tunnel_host : `str`
+        The local bind's host.
+        Usually localhost.
+    tunnel_port : `int`
+        The local bind's port.
+    client : `pymodbus.client.AsyncModbusTcpClient`
+        The pymodbus async client.
     """
 
-    def __init__(self, host, port) -> None:
-        self.port = port
-        self.host = host
+    def __init__(self, config, simulation_mode) -> None:
+        self.modbus_port = config.modbus_port
+        self.modbus_host = config.modbus_host
+        self.bastion_host = config.bastion_host
+        self.bastion_port = config.bastion_port
+        self.tunnel_host = config.tunnel_host
+        self.tunnel_port = config.tunnel_port
+        self.simulation_mode = simulation_mode
+        self.log = logging.getLogger(__name__)
         self.client = None
 
     @property
@@ -31,30 +56,51 @@ class ModbusCommander:
         Returns
         -------
         `bool`
+            Is the client connected?
         """
-        if self.client is None or not self.client.is_socket_open:
-            return False
-        else:
-            return True
+        return self.client is not None and self.client.connected
 
-    def connect(self):
-        """Connect to the commander."""
+    async def connect(self):
+        """Connect to the commander.
+        * Opens the sshtunnel if not in simulation mode.
+        * Opens the modbus connection to the GIS with sshtunnel.
+        """
         if not self.connected:
-            self.client = ModbusTcpClient(self.host, self.port)
-            self.client.connect()
+            if not self.simulation_mode:
+                self.tunnel = sshtunnel.open_tunnel(
+                    (self.bastion_host, self.bastion_port),
+                    ssh_username="saluser",
+                    password=os.environ["GIS_PASSWORD"],
+                    remote_bind_address=(self.modbus_host, self.modbus_port),
+                    local_bind_address=(self.tunnel_host, self.tunnel_port),
+                )
+                self.log.info("Tunnel is up.")
+            self.client = AsyncModbusTcpClient(
+                self.tunnel_host, self.tunnel_port, timeout=10
+            )
+            await self.client.connect()
+            self.log.info("Client connected.")
 
-    def disconnect(self):
-        """Disconnect from the commander."""
+    async def disconnect(self):
+        """Disconnect from the commander.
+        sshtunnel is also closed when not in simulation mode.
+        """
         if self.connected:
+            await self.client.close()
+            self.log.info("Modbus client is closed.")
             self.client = None
+            if not self.simulation_mode:
+                self.tunnel.close()
+                self.log.info("Tunnel is closed.")
 
-    def read(self):
+    async def read(self):
         """Read the holding registers.
 
         Returns
         -------
-        reply : `HoldRegisterReply`
+        reply : `pymodbus.register_read_message.ReadHoldingRegistersResponse` or `pymodbus.exceptions.ModbusIOException` # noqa
             The reply from the modbus server.
+            Can also be a ModbusIOException.
 
         Raises
         ------
@@ -62,8 +108,11 @@ class ModbusCommander:
             Raised when the client is not connected to the modbus server.
         """
         if self.connected:
-            reply = self.client.read_holding_registers(0, 29)
-            return reply
+            reply = await self.client.read_holding_registers(0, 29)
+            if not isinstance(reply, ModbusIOException):
+                return reply
+            else:
+                self.log.exception(f"{reply.string}")
         else:
             raise RuntimeError("Commander is not connected.")
 
@@ -72,7 +121,7 @@ class ModbusCommander:
 
         Parameters
         ----------
-        reply : `HoldRegisterReply`
+        reply : `pymodbus.register_read_message.ReadHoldingRegistersResponse`
             The reply from the modbus server.
 
         Returns
@@ -81,6 +130,9 @@ class ModbusCommander:
             The unfiltered response of the reply in a byte array.
         """
         raw_status = bytearray()
-        for data in reply.registers:
-            raw_status += data.to_bytes(2, sys.byteorder)
-        return raw_status
+        try:
+            for data in reply.registers:
+                raw_status += data.to_bytes(2, sys.byteorder)
+            return raw_status
+        except Exception:
+            self.log.exception("Something went wrong.")

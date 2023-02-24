@@ -1,2 +1,2 @@
 @Library('JenkinsShared')_
-CondaPipeline(["ts_config_ocs"], "ts-gis", "lsst.ts.gis")
+CondaPipeline(["ts_config_ocs"], "ts-gis", "lsst.ts.gis", "noarch")
