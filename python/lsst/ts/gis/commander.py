@@ -1,7 +1,6 @@
 __all__ = ["ModbusCommander"]
 
 import logging
-import os
 import sys
 
 import sshtunnel
@@ -69,8 +68,8 @@ class ModbusCommander:
             if not self.simulation_mode:
                 self.tunnel = sshtunnel.open_tunnel(
                     (self.bastion_host, self.bastion_port),
-                    ssh_username="saluser",
-                    password=os.environ["GIS_PASSWORD"],
+                    ssh_username="gis-bastion",
+                    pkey="~/.ssh/id_gis_bastion",
                     remote_bind_address=(self.modbus_host, self.modbus_port),
                     local_bind_address=(self.tunnel_host, self.tunnel_port),
                 )
