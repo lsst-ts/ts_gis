@@ -45,7 +45,7 @@ class ModbusCommander:
         self.tunnel_host = config.tunnel_host
         self.tunnel_port = config.tunnel_port
         self.ssh_username = config.ssh_username
-        self.pkey = config.pkey
+        self.ssh_pkey = config.pkey
         self.simulation_mode = simulation_mode
         self.log = logging.getLogger(__name__)
         self.client = None
@@ -71,7 +71,7 @@ class ModbusCommander:
                 self.tunnel = sshtunnel.open_tunnel(
                     (self.bastion_host, self.bastion_port),
                     ssh_username=self.ssh_username,
-                    pkey=self.pkey,
+                    ssh_pkey=self.ssh_pkey,
                     remote_bind_address=(self.modbus_host, self.modbus_port),
                     local_bind_address=(self.tunnel_host, self.tunnel_port),
                 )
