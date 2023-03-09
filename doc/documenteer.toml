@@ -1,0 +1,17 @@
+[project]
+title = "GIS"
+copyright = "2019-2023 Association of Universities for Research in Astronomy, Inc. (AURA)"
+
+[project.python]
+package = "ts-gis"
+documentation_url_key = "documentation"
+github_url_key = "source_code"
+
+[sphinx]
+extensions = ["sphinx-jsonschema"]
+
+[sphinx.intersphinx.projects]
+ts-xml = "https://ts-xml.lsst.io"
+pymodbus = "https://pymodbus.readthedocs.io/en/v3.1.3/"
+salobj = "https://ts-salobj.lsst.io"
+python = "https://docs.python.org/3.10/"
