@@ -1,6 +1,5 @@
 __all__ = ["ModbusCommander"]
 
-import logging
 import sys
 
 import sshtunnel
@@ -37,7 +36,7 @@ class ModbusCommander:
         The pymodbus async client.
     """
 
-    def __init__(self, config, simulation_mode) -> None:
+    def __init__(self, config, simulation_mode, log=None) -> None:
         self.modbus_port = config.modbus_port
         self.modbus_host = config.modbus_host
         self.bastion_host = config.bastion_host
@@ -47,7 +46,7 @@ class ModbusCommander:
         self.ssh_username = config.ssh_username
         self.ssh_pkey = config.pkey
         self.simulation_mode = simulation_mode
-        self.log = logging.getLogger(__name__)
+        self.log = log
         self.client = None
 
     @property
@@ -74,6 +73,7 @@ class ModbusCommander:
                     ssh_pkey=self.ssh_pkey,
                     remote_bind_address=(self.modbus_host, self.modbus_port),
                     local_bind_address=(self.tunnel_host, self.tunnel_port),
+                    logger=self.log,
                 )
                 self.log.info("Tunnel is up.")
             self.client = AsyncModbusTcpClient(
