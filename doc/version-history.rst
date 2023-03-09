@@ -16,7 +16,8 @@ v0.4.0
 * Fix import path for pymodbus.
 * Add mock_server and simulation mode.
 * Switch to async modbus client.
-* Add sshtunnel functionality
+* Add sshtunnel functionality.
+* Update sshtunnel authentication and schema.
 
 v0.3.0
 ======
