@@ -10,6 +10,10 @@ Version History
 .. No new work should be required in order to complete this section.
 .. Below is an example of a version history format.
 
+v0.4.1
+======
+* Fix typo in sshtunnel parameter ssh_pkey from pkey to ssh_pkey.
+
 v0.4.0
 ======
 * Swap ts-salobj base case.
