@@ -52,7 +52,7 @@ class GISCscTestCase(salobj.BaseCscTestCase, unittest.IsolatedAsyncioTestCase):
             await self.remote.evt_rawStatus.aget(timeout=20)
             system_status = await self.remote.evt_systemStatus.aget(timeout=20)
             assert system_status.index == 28
-            assert system_status.status == 1
+            assert system_status.status == 0
 
 
 if __name__ == "__main__":

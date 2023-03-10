@@ -75,7 +75,11 @@ class ModbusCommander:
                     local_bind_address=(self.tunnel_host, self.tunnel_port),
                     logger=self.log,
                 )
-                self.log.info("Tunnel is up.")
+                self.tunnel.start()
+                if self.tunnel.tunnel_is_up[(self.tunnel_host, self.tunnel_port)]:
+                    self.log.info("Tunnel is up.")
+                else:
+                    raise RuntimeError("Tunnel is down.")
             self.client = AsyncModbusTcpClient(
                 self.tunnel_host, self.tunnel_port, timeout=10
             )
