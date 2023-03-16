@@ -14,6 +14,7 @@ v0.4.2
 ======
 * Pass logs to CSC logs for debugging.
 * Start the tunnel even when using open_tunnel.
+* Add debug log to check registers when changed received.
 
 v0.4.1
 ======

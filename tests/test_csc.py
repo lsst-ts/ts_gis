@@ -1,8 +1,10 @@
 import os
 import pathlib
 import unittest
+from unittest.mock import AsyncMock
 
 from lsst.ts import gis, salobj
+from pymodbus.register_read_message import ReadHoldingRegistersResponse
 
 TEST_CONFIG_DIR = pathlib.Path(__file__).parents[1].joinpath("tests", "data", "config")
 
@@ -53,6 +55,47 @@ class GISCscTestCase(salobj.BaseCscTestCase, unittest.IsolatedAsyncioTestCase):
             system_status = await self.remote.evt_systemStatus.aget(timeout=20)
             assert system_status.index == 28
             assert system_status.status == 0
+            self.csc.component.commander.read = AsyncMock(
+                return_value=ReadHoldingRegistersResponse(
+                    [
+                        232,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                    ]
+                )
+            )
+            await self.remote.evt_rawStatus.next(timeout=20, flush=True)
+            new_system_status = await self.remote.evt_systemStatus.next(
+                timeout=20, flush=True
+            )
+            assert new_system_status.index == 0
+            assert new_system_status.status == 232
 
 
 if __name__ == "__main__":

@@ -66,6 +66,7 @@ class GISComponent:
             raw_status = self.commander.get_raw_string(reply)
             if self.raw_status != raw_status:
                 await self.csc.evt_rawStatus.set_write(status=raw_status)
+                self.log.debug(f"registers={reply.registers}")
             self.raw_status = raw_status
             for index, (current_subsystem, old_subsystem) in enumerate(
                 itertools.zip_longest(
