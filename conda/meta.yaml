@@ -53,6 +53,7 @@ requirements:
         - ts-conda-build =0.3
         - pymodbus
         - sshtunnel
+        - bitarray
     run:
         - python {{ python }}
         - setuptools
@@ -61,3 +62,4 @@ requirements:
         - ts-idl
         - pymodbus
         - sshtunnel
+        - bitarray

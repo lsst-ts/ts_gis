@@ -2,6 +2,7 @@ __all__ = ["ModbusCommander"]
 
 import sys
 
+import bitarray
 import sshtunnel
 from pymodbus.client import AsyncModbusTcpClient
 from pymodbus.exceptions import ModbusIOException
@@ -138,6 +139,9 @@ class ModbusCommander:
         try:
             for data in reply.registers:
                 raw_status += data.to_bytes(2, sys.byteorder)
-            return raw_status
+            # Make a bitarray to represent flag values
+            bytes_status = bitarray.bitarray(endian=sys.byteorder)
+            bytes_status.frombytes(raw_status)
+            return bytes_status.to01()  # Return a string that represents the 01 values.
         except Exception:
             self.log.exception("Something went wrong.")
