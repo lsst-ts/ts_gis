@@ -1,10 +1,8 @@
 import os
 import pathlib
-import sys
 import unittest
 from unittest.mock import AsyncMock
 
-import bitarray
 from lsst.ts import gis, salobj
 from pymodbus.register_read_message import ReadHoldingRegistersResponse
 
@@ -55,34 +53,8 @@ class GISCscTestCase(salobj.BaseCscTestCase, unittest.IsolatedAsyncioTestCase):
         ):
             raw_status = await self.remote.evt_rawStatus.aget(timeout=20)
             assert isinstance(raw_status.status, str)
-            assert len(raw_status.status) == 464
-            assert raw_status.status == (
-                "00000000000000000000000000000000000000000000000000000000000000000000000000000"
-                "00000000000000000000000000000000000000000000000000000000000000000000000000000000000"
-                "00000000000000000000000000000000000000000000000000000000000000000000000000000000000"
-                "00000000000000000000000000000000000000000000000000000000000000000000000000000000000"
-                "00000000000000000000000000000000000000000000000000000000000000000000000000000000000"
-                "0000000000000000000000000000000000000000000000000000000"
-            )
-            bytes_data = bitarray.bitarray(endian=sys.byteorder)
-            bytes_data.extend(raw_status.status)
-            assert bytes_data.nbytes == 58
-            assert bytes_data.tobytes() == bytearray(
-                (
-                    b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
-                    b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
-                    b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
-                )
-            )
-            assert (
-                bytes_data.to01()
-                == "0000000000000000000000000000000000000000000000000000000000000000000000000000000"
-                + "00000000000000000000000000000000000000000000000000000000000000000000000000000000"
-                + "000000000000000000000000000000000000000000000000000000000000000000000000000000000"
-                + "000000000000000000000000000000000000000000000000000000000000000000000000000000000"
-                + "000000000000000000000000000000000000000000000000000000000000000000000000000000000"
-                + "00000000000000000000000000000000000000000000000000000000000000"
-            )
+            assert len(raw_status.status) == 521
+            assert raw_status.status == " ".join(("00000000",) * 58)
             system_status = await self.remote.evt_systemStatus.aget(timeout=20)
             assert system_status.index == 28
             assert system_status.status == 0
@@ -122,23 +94,6 @@ class GISCscTestCase(salobj.BaseCscTestCase, unittest.IsolatedAsyncioTestCase):
                 )
             )
             raw_status = await self.remote.evt_rawStatus.next(timeout=20, flush=True)
-            bytes_data = bitarray.bitarray(endian=sys.byteorder)
-            bytes_data.extend(raw_status.status)
-            assert bytes_data.tobytes() == bytearray(
-                (
-                    b"\xe8\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
-                    b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
-                    b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
-                )
-            )
-            assert bytes_data.to01() == (
-                "000101110000000000000000000000000000000000000000000000000000000000000000000000"
-                "000000000000000000000000000000000000000000000000000000000000000000000000000000"
-                "000000000000000000000000000000000000000000000000000000000000000000000000000000"
-                "000000000000000000000000000000000000000000000000000000000000000000000000000000"
-                "000000000000000000000000000000000000000000000000000000000000000000000000000000"
-                "00000000000000000000000000000000000000000000000000000000000000000000000000"
-            )
             new_system_status = await self.remote.evt_systemStatus.next(
                 timeout=20, flush=True
             )

@@ -1,8 +1,8 @@
 __all__ = ["ModbusCommander"]
 
+import logging
 import sys
 
-import bitarray
 import sshtunnel
 from pymodbus.client import AsyncModbusTcpClient
 from pymodbus.exceptions import ModbusIOException
@@ -47,7 +47,10 @@ class ModbusCommander:
         self.ssh_username = config.ssh_username
         self.ssh_pkey = config.pkey
         self.simulation_mode = simulation_mode
-        self.log = log
+        if log is None:
+            self.log = logging.getLogger(type(self).__name__)
+        else:
+            self.log = log.getChild(type(self).__name__)
         self.client = None
 
     @property
@@ -140,8 +143,13 @@ class ModbusCommander:
             for data in reply.registers:
                 raw_status += data.to_bytes(2, sys.byteorder)
             # Make a bitarray to represent flag values
-            bytes_status = bitarray.bitarray(endian=sys.byteorder)
-            bytes_status.frombytes(raw_status)
-            return bytes_status.to01()  # Return a string that represents the 01 values.
+            self.log.debug(f"{raw_status=}")
+            bit_status = ""
+            for byte in raw_status:
+                bit_status += f"{byte:>08b}"
+                bit_status += " "
+            bit_status = bit_status.rstrip(" ")
+            self.log.debug(f"{bit_status=}")
+            return bit_status
         except Exception:
             self.log.exception("Something went wrong.")
