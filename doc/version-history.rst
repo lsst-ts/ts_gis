@@ -10,6 +10,13 @@ Version History
 .. No new work should be required in order to complete this section.
 .. Below is an example of a version history format.
 
+v0.4.2
+======
+* Pass logs to CSC logs for debugging.
+* Start the tunnel even when using open_tunnel.
+* Add debug log to check registers when changed received.
+* Improve raw status bit flag representation.
+
 v0.4.1
 ======
 * Fix typo in sshtunnel parameter ssh_pkey from pkey to ssh_pkey.
