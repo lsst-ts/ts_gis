@@ -69,6 +69,7 @@ class GISCsc(salobj.ConfigurableCsc):
 
     async def telemetry_loop(self):
         """Implement the telemetry feed for the GIS."""
+        self.log.info("Starting telemetry loop.")
         while True:
             try:
                 await self.component.update_status()
@@ -98,7 +99,7 @@ class GISCsc(salobj.ConfigurableCsc):
         """
         if self.disabled_or_enabled:
             if self.simulation_mode and self.mock_server is None:
-                child = ModbusSlaveContext(hr=ModbusSequentialDataBlock(0, [1] * 30))
+                child = ModbusSlaveContext(hr=ModbusSequentialDataBlock(0, [0] * 30))
                 context = ModbusServerContext(slaves=child, single=True)
                 self.mock_server = ModbusTcpServer(
                     context=context, address=("127.0.0.1", 15020)
@@ -111,12 +112,11 @@ class GISCsc(salobj.ConfigurableCsc):
                 self.log.debug("Mock server started.")
             if not self.connected:
                 await self.component.connect()
-            if self.telemetry_task.done() and self.connected:
+            if self.telemetry_task.done():
                 self.telemetry_task = asyncio.create_task(self.telemetry_loop())
         else:
             self.telemetry_task.cancel()
-            if self.connected:
-                await self.component.disconnect()
+            await self.component.disconnect()
             if self.mock_server is not None:
                 await self.mock_server.shutdown()
                 self.mock_server_task.cancel()

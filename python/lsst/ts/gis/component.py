@@ -1,7 +1,6 @@
 __all__ = ["GISComponent"]
 
 import itertools
-import logging
 
 from .commander import ModbusCommander
 
@@ -31,7 +30,7 @@ class GISComponent:
         self.csc = csc
         self.raw_status = None
         self.system_status = []
-        self.log = logging.getLogger(__name__)
+        self.log = self.csc.log
 
     @property
     def connected(self):
@@ -49,7 +48,9 @@ class GISComponent:
 
     async def connect(self):
         """Connect to the commander."""
-        self.commander = ModbusCommander(self.config, self.csc.simulation_mode)
+        self.commander = ModbusCommander(
+            self.config, self.csc.simulation_mode, log=self.log
+        )
         await self.commander.connect()
 
     async def disconnect(self):
@@ -65,6 +66,7 @@ class GISComponent:
             raw_status = self.commander.get_raw_string(reply)
             if self.raw_status != raw_status:
                 await self.csc.evt_rawStatus.set_write(status=raw_status)
+                self.log.debug(f"registers={reply.registers}")
             self.raw_status = raw_status
             for index, (current_subsystem, old_subsystem) in enumerate(
                 itertools.zip_longest(

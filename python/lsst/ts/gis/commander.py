@@ -37,7 +37,7 @@ class ModbusCommander:
         The pymodbus async client.
     """
 
-    def __init__(self, config, simulation_mode) -> None:
+    def __init__(self, config, simulation_mode, log=None) -> None:
         self.modbus_port = config.modbus_port
         self.modbus_host = config.modbus_host
         self.bastion_host = config.bastion_host
@@ -47,7 +47,10 @@ class ModbusCommander:
         self.ssh_username = config.ssh_username
         self.ssh_pkey = config.pkey
         self.simulation_mode = simulation_mode
-        self.log = logging.getLogger(__name__)
+        if log is None:
+            self.log = logging.getLogger(type(self).__name__)
+        else:
+            self.log = log.getChild(type(self).__name__)
         self.client = None
 
     @property
@@ -74,8 +77,13 @@ class ModbusCommander:
                     ssh_pkey=self.ssh_pkey,
                     remote_bind_address=(self.modbus_host, self.modbus_port),
                     local_bind_address=(self.tunnel_host, self.tunnel_port),
+                    logger=self.log,
                 )
-                self.log.info("Tunnel is up.")
+                self.tunnel.start()
+                if self.tunnel.tunnel_is_up[(self.tunnel_host, self.tunnel_port)]:
+                    self.log.info("Tunnel is up.")
+                else:
+                    raise RuntimeError("Tunnel is down.")
             self.client = AsyncModbusTcpClient(
                 self.tunnel_host, self.tunnel_port, timeout=10
             )
@@ -134,6 +142,14 @@ class ModbusCommander:
         try:
             for data in reply.registers:
                 raw_status += data.to_bytes(2, sys.byteorder)
-            return raw_status
+            # Make a bitarray to represent flag values
+            self.log.debug(f"{raw_status=}")
+            bit_status = ""
+            for byte in raw_status:
+                bit_status += f"{byte:>08b}"
+                bit_status += " "
+            bit_status = bit_status.rstrip(" ")
+            self.log.debug(f"{bit_status=}")
+            return bit_status
         except Exception:
             self.log.exception("Something went wrong.")

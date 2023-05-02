@@ -24,3 +24,4 @@ pytest_session.txt
 .vscode
 ospl-*
 api
+.hypothesis
