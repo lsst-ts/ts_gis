@@ -10,6 +10,10 @@ Version History
 .. No new work should be required in order to complete this section.
 .. Below is an example of a version history format.
 
+v0.4.3
+======
+* Enforce pymodbus greater than 3 for conda recipe.
+
 v0.4.2
 ======
 * Pass logs to CSC logs for debugging.
