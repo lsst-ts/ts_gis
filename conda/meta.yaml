@@ -28,7 +28,7 @@ test:
         - ts-dds
         - ts-idl {{ idl_version }}
         - ts-salobj {{ salobj_version }}
-        - pymodbus
+        - pymodbus >3
         - sshtunnel
     source_files:
         - python
