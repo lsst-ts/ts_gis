@@ -28,7 +28,7 @@ test:
         - ts-dds
         - ts-idl {{ idl_version }}
         - ts-salobj {{ salobj_version }}
-        - pymodbus >3
+        - pymodbus >=3
         - sshtunnel
     source_files:
         - python
@@ -45,19 +45,16 @@ requirements:
         - pip
         - setuptools_scm
         - setuptools
-        - pytest-runner
     build:
         - python {{ python }}
         - setuptools_scm
         - setuptools
         - ts-conda-build =0.3
-        - pymodbus
-        - sshtunnel
     run:
         - python {{ python }}
         - setuptools
         - setuptools_scm
         - ts-salobj
         - ts-idl
-        - pymodbus
+        - pymodbus >=3
         - sshtunnel
