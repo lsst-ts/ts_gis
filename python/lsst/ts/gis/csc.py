@@ -1,4 +1,4 @@
-__all__ = ["GISCsc"]
+__all__ = ["GISCsc", "execute_csc"]
 
 import asyncio
 
@@ -13,6 +13,10 @@ from pymodbus.server import ModbusTcpServer
 from . import __version__
 from .component import GISComponent
 from .config import CONFIG_SCHEMA
+
+
+def execute_csc():
+    asyncio.run(GISCsc.amain(index=None))
 
 
 class GISCsc(salobj.ConfigurableCsc):
