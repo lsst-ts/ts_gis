@@ -134,9 +134,9 @@ class GISCsc(salobj.ConfigurableCsc):
 
     async def close_tasks(self):
         """Shutdown mock server and connection to server."""
-        await super().close_tasks()
         self.telemetry_task.cancel()
         await self.component.disconnect()
         if self.mock_server is not None:
             await self.mock_server.shutdown()
             self.mock_server = None
+        await super().close_tasks()

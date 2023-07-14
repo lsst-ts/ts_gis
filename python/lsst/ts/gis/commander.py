@@ -95,7 +95,7 @@ class ModbusCommander:
         sshtunnel is also closed when not in simulation mode.
         """
         if self.connected:
-            await self.client.close()
+            self.client.close()
             self.log.info("Modbus client is closed.")
             self.client = None
             if not self.simulation_mode:

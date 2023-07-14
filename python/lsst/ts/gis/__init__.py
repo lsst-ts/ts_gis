@@ -24,6 +24,7 @@ try:
 except ImportError:
     __version__ = "?"
 
+from .cli import *
 from .commander import *
 from .component import *
 from .config import *
