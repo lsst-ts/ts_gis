@@ -11,7 +11,7 @@ TEST_CONFIG_DIR = pathlib.Path(__file__).parents[1].joinpath("tests", "data", "c
 
 class GISCscTestCase(salobj.BaseCscTestCase, unittest.IsolatedAsyncioTestCase):
     def setUp(self) -> None:
-        os.environ["LSST_SITE"] = "gis"
+        os.environ["LSST_SITE"] = "test"
         return super().setUp()
 
     def basic_make_csc(
@@ -99,7 +99,3 @@ class GISCscTestCase(salobj.BaseCscTestCase, unittest.IsolatedAsyncioTestCase):
             )
             assert new_system_status.index == 0
             assert new_system_status.status == 232
-
-
-if __name__ == "__main__":
-    unittest.main()

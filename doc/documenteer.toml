@@ -3,7 +3,7 @@ title = "GIS"
 copyright = "2019-2023 Association of Universities for Research in Astronomy, Inc. (AURA)"
 
 [project.python]
-package = "ts-gis"
+package = "ts_gis"
 documentation_url_key = "documentation"
 github_url_key = "source_code"
 

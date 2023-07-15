@@ -1,4 +1,4 @@
-__all__ = ["GISCsc"]
+__all__ = ["GISCsc", "execute_csc"]
 
 import asyncio
 
@@ -13,6 +13,10 @@ from pymodbus.server import ModbusTcpServer
 from . import __version__
 from .component import GISComponent
 from .config import CONFIG_SCHEMA
+
+
+def execute_csc():
+    asyncio.run(GISCsc.amain(index=None))
 
 
 class GISCsc(salobj.ConfigurableCsc):
@@ -134,9 +138,9 @@ class GISCsc(salobj.ConfigurableCsc):
 
     async def close_tasks(self):
         """Shutdown mock server and connection to server."""
-        await super().close_tasks()
         self.telemetry_task.cancel()
         await self.component.disconnect()
         if self.mock_server is not None:
             await self.mock_server.shutdown()
             self.mock_server = None
+        await super().close_tasks()
