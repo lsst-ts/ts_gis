@@ -3,7 +3,7 @@ requires = ["setuptools>=45", "setuptools-scm[toml]>=6.2"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "ts-gis"
+name = "ts_gis"
 description = "GIS is a Commandable SAL Component for the `Vera C. Rubin Observatory <https://lsst.org>`_."
 license = { text = "GPL" }
 dependencies = ["pymodbus", "sshtunnel"]
