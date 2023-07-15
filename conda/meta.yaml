@@ -8,53 +8,33 @@ source:
 
 build:
     noarch: python
-    script: {{ PYTHON }} -m pip install --no-deps --ignore-installed .
-    entry_points:
-        - run_gis = lsst.ts.gis.cli:execute_csc
-    script_env:
-        - PATH
-        - PYTHONPATH
-        - LD_LIBRARY_PATH
-        - OSPL_HOME
-        - PYTHON_BUILD_VERSION
-        - PYTHON_BUILD_LOCATION
-        - LSST_DDS_DOMAIN
-        - TS_CONFIG_OCS_DIR
-        - LSST_SITE
+    script: {{PYTHON}} -m pip install --no-deps --ignore-installed .
+
 
 test:
     requires:
-        - ts-conda-build =0.3
-        - ts-dds
         - ts-idl {{ idl_version }}
         - ts-salobj {{ salobj_version }}
-        - pymodbus >=3
-        - sshtunnel
+        - ts-conda-build =0.3
     source_files:
         - python
         - bin
         - tests
-        - setup.cfg
         - pyproject.toml
     commands:
-        - py.test
+        - pytest
 
 requirements:
     host:
-        - python {{ python }}
-        - pip
+        - python {{python}}
         - setuptools_scm
         - setuptools
     build:
-        - python {{ python }}
-        - setuptools_scm
-        - setuptools
+        - python {{python}}
         - ts-conda-build =0.3
     run:
-        - python {{ python }}
-        - setuptools
-        - setuptools_scm
+        - python {{python}}
         - ts-salobj
         - ts-idl
-        - pymodbus >=3
+        - pymodbus >=3,<=3.2
         - sshtunnel
