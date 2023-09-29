@@ -95,6 +95,9 @@ First install a third party package bitarray which will make this process much e
     print(data_bits.to01()) # 1110100000000000
 
 
+Now there are 29 subsystem events that set each bit as a boolean allowing the user to easily discern what is currently triggered or not triggered.
+
+
 Example Use-Case
 ================
 

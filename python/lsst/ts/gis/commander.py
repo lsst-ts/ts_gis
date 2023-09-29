@@ -88,16 +88,21 @@ class ModbusCommander:
                 self.tunnel_host, self.tunnel_port, timeout=10
             )
             await self.client.connect()
-            self.log.info("Client connected.")
+            if self.client.connected:
+                self.log.info("Client connected.")
 
     async def disconnect(self):
         """Disconnect from the commander.
         sshtunnel is also closed when not in simulation mode.
         """
         if self.connected:
-            await self.client.close()
+            try:
+                self.client.close()
+            except Exception:
+                pass
+            finally:
+                self.client = None
             self.log.info("Modbus client is closed.")
-            self.client = None
             if not self.simulation_mode:
                 self.tunnel.close()
                 self.log.info("Tunnel is closed.")
@@ -107,7 +112,7 @@ class ModbusCommander:
 
         Returns
         -------
-        reply : `pymodbus.register_read_message.ReadHoldingRegistersResponse` or `pymodbus.exceptions.ModbusIOException` # noqa
+        reply : `pymodbus.register_read_message.ReadHoldingRegistersResponse`
             The reply from the modbus server.
             Can also be a ModbusIOException.
 
@@ -125,8 +130,8 @@ class ModbusCommander:
         else:
             raise RuntimeError("Commander is not connected.")
 
-    def get_raw_string(self, reply):
-        """Generate the raw system byte status of the GIS.
+    def generate_status_array(self, reply):
+        """Generate the system 1's and 0's status of the GIS.
 
         Parameters
         ----------
@@ -135,21 +140,13 @@ class ModbusCommander:
 
         Returns
         -------
-        raw_status : `bytearray`
-            The unfiltered response of the reply in a byte array.
+        bit_status : `bytearray`
+            The 1 and 0's string of each subsystem separated by spaces.
         """
-        raw_status = bytearray()
+        status_array = bytearray()
         try:
             for data in reply.registers:
-                raw_status += data.to_bytes(2, sys.byteorder)
-            # Make a bitarray to represent flag values
-            self.log.debug(f"{raw_status=}")
-            bit_status = ""
-            for byte in raw_status:
-                bit_status += f"{byte:>08b}"
-                bit_status += " "
-            bit_status = bit_status.rstrip(" ")
-            self.log.debug(f"{bit_status=}")
-            return bit_status
+                status_array += data.to_bytes(2, sys.byteorder)
+            return status_array
         except Exception:
-            self.log.exception("Something went wrong.")
+            self.log.exception("Could not generate status array.")
