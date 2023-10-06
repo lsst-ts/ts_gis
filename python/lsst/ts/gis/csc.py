@@ -1,18 +1,16 @@
 __all__ = ["GISCsc", "execute_csc"]
 
 import asyncio
+import pathlib
 
 from lsst.ts import salobj, utils
-from pymodbus.datastore import (
-    ModbusSequentialDataBlock,
-    ModbusServerContext,
-    ModbusSlaveContext,
-)
-from pymodbus.server import ModbusTcpServer
+from pymodbus.server.simulator.http_server import ModbusSimulatorServer
 
 from . import __version__
 from .component import GISComponent
 from .config import CONFIG_SCHEMA
+
+FILE = pathlib.Path(__file__).resolve().parents[0] / "data" / "setup.json"
 
 
 def execute_csc():
@@ -70,6 +68,7 @@ class GISCsc(salobj.ConfigurableCsc):
         self.simulator = None
         self.telemetry_interval = None
         self.telemetry_task = utils.make_done_future()
+        self.mock_server_task = utils.make_done_future()
 
     async def telemetry_loop(self):
         """Implement the telemetry feed for the GIS."""
@@ -103,17 +102,13 @@ class GISCsc(salobj.ConfigurableCsc):
         """
         if self.disabled_or_enabled:
             if self.simulation_mode and self.mock_server is None:
-                child = ModbusSlaveContext(hr=ModbusSequentialDataBlock(0, [0] * 30))
-                context = ModbusServerContext(slaves=child, single=True)
-                self.mock_server = ModbusTcpServer(
-                    context=context, address=("127.0.0.1", 15020)
-                )
-                self.log.debug("Starting mock server.")
-                self.mock_server_task = asyncio.create_task(
-                    self.mock_server.serve_forever()
-                )
-                await self.mock_server.serving
-                self.log.debug("Mock server started.")
+                self.mock_server = ModbusSimulatorServer(json_file=FILE)
+                self.log.info("Starting mock server.")
+                if self.mock_server_task.done():
+                    self.mock_server_task = asyncio.create_task(
+                        self.mock_server.run_forever()
+                    )
+                self.log.info("Mock server started.")
             if not self.connected:
                 await self.component.connect()
             if self.telemetry_task.done():
@@ -121,9 +116,9 @@ class GISCsc(salobj.ConfigurableCsc):
         else:
             self.telemetry_task.cancel()
             await self.component.disconnect()
+            self.mock_server_task.cancel()
             if self.mock_server is not None:
-                await self.mock_server.shutdown()
-                self.mock_server_task.cancel()
+                await self.mock_server.stop()
                 self.mock_server = None
 
     async def configure(self, config):
@@ -140,7 +135,8 @@ class GISCsc(salobj.ConfigurableCsc):
         """Shutdown mock server and connection to server."""
         self.telemetry_task.cancel()
         await self.component.disconnect()
+        self.mock_server_task.cancel()
         if self.mock_server is not None:
-            await self.mock_server.shutdown()
+            await self.mock_server.stop()
             self.mock_server = None
         await super().close_tasks()
