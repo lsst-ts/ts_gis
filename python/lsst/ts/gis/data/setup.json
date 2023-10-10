@@ -1,0 +1,48 @@
+{
+    "server_list": {
+        "server": {
+            "comm": "tcp",
+            "host": "0.0.0.0",
+            "port": "15020",
+            "framer": "socket"
+        }
+    },
+    "device_list": {
+        "device": {
+            "setup": {
+                "co size": 0,
+                "di size": 0,
+                "hr size": 29,
+                "ir size": 0,
+                "shared blocks": true,
+                "type exception": true,
+                "defaults": {
+                    "value": {
+                        "bits": 0,
+                        "uint16": 0,
+                        "uint32": 0,
+                        "float32": 0.0,
+                        "string": " "
+                    },
+                    "action": {
+                        "bits": null,
+                        "uint16": null,
+                        "uint32": null,
+                        "float32": null,
+                        "string": null
+                    }
+                }
+            },
+            "invalid": [],
+            "write": [],
+            "bits": [],
+            "uint16": [
+                {"addr":[0, 28], "value": 0, "action": "random", "kwargs": {"minval": 0, "maxval": 255}}
+            ],
+            "uint32": [],
+            "float32": [],
+            "string": [],
+            "repeat": []
+        }
+    }
+}

@@ -10,6 +10,13 @@ Version History
 .. No new work should be required in order to complete this section.
 .. Below is an example of a version history format.
 
+0.5.0
+=====
+
+* Support new pymodbus simulator.
+* Support pymodbus 3.5.
+* Split subsystem registers into booleans for publishing new subsystem events.
+
 v0.4.5
 ======
 * Clean up code.

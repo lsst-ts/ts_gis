@@ -1,8 +1,10 @@
 __all__ = ["GISComponent"]
 
-import itertools
+from dataclasses import asdict
 
+from . import enums
 from .commander import ModbusCommander
+from .enums import subsystem_order
 
 
 class GISComponent:
@@ -63,21 +65,87 @@ class GISComponent:
         """Update the status of the GIS."""
         reply = await self.commander.read()
         if reply is not None:
-            raw_status = self.commander.get_raw_string(reply)
-            if self.raw_status != raw_status:
-                await self.csc.evt_rawStatus.set_write(status=raw_status)
-                self.log.debug(f"registers={reply.registers}")
-            self.raw_status = raw_status
-            for index, (current_subsystem, old_subsystem) in enumerate(
-                itertools.zip_longest(
-                    reply.registers, self.system_status, fillvalue=None
+            status_array = self.commander.generate_status_array(reply)
+            status_string = await self.update_raw_status(status_array)
+            self.log.debug(f"registers={reply.registers}")
+            # Since salobj checks the cached data with set_write, only need
+            # to iterate through the current reply.
+            for index, current_subsystem in enumerate(reply.registers):
+                await self.csc.evt_systemStatus.set_write(
+                    index=index, status=current_subsystem
                 )
-            ):
-                if current_subsystem != old_subsystem:
-                    await self.csc.evt_systemStatus.set_write(
-                        index=index, status=current_subsystem
-                    )
-            self.system_status = reply.registers
+            await self.fill_out_fields(status_string)
+
+    async def update_raw_status(self, status_array):
+        """Update the raw status event.
+
+        Parameters
+        ----------
+        status_array : `bytearray`
+            The status array that contains the subsystem information.
+
+        Returns
+        -------
+        status_string: `str`
+            The string representation of the status.
+        """
+        status_string = ""
+        for status in status_array[::2]:
+            status_string += bin(status)[2:].zfill(16) + " "
+
+        status_string = status_string.rstrip(" ")
+
+        await self.csc.evt_rawStatus.set_write(status=status_string)
+
+        return status_string
+
+    async def fill_out_fields(self, statuses):
+        """Fill out subsystem event data.
+
+        Iterate through the subsystem 1's and 0's array to publish each
+        subsystem's boolean status.
+        Some subsystem's have free reserved for future use and the XML has
+        a count field greater than one for those blocks.
+        The data classes use a tuple field to indicate the appropriate values
+        for that XML item.
+        Some data classes do not contain any tuples and so can be appended
+        to the array as normal.
+
+        Parameters
+        ----------
+        statuses: `str`
+            The string array of 1's and 0's that comprise the status of the
+            GIS's subsystems.
+        """
+        statuses = statuses.split(" ")
+        for status_index, status in enumerate(statuses):
+            self.log.debug(f"{status=}")
+            subsystem_name = getattr(enums, subsystem_order[status_index])
+            # For a given string of 1 and 0's, return an array of booleans
+            if hasattr(subsystem_name, "tuple_range"):
+                tuple_min, tuple_max = subsystem_name.tuple_range()
+            else:
+                tuple_min = tuple_max = None
+            t = tuple()
+            status_as_bool = []
+            appended_tuple = False
+            for bit_index, bit_status in enumerate(status):
+                if tuple_max is not None and tuple_min is not None:
+                    if bit_index >= tuple_min and bit_index < tuple_max:
+                        t += tuple([bool(int(bit_status))])
+                    elif bit_index + 1 > tuple_max and not appended_tuple:
+                        t += tuple([bool(int(bit_status))])
+                        status_as_bool.append(t)
+                        appended_tuple = True
+                    else:
+                        status_as_bool.append(bool(int(bit_status)))
+                else:
+                    status_as_bool.append(bool(int(bit_status)))
+            self.log.debug(f"{status_as_bool=}")
+            # Instantiate the data class with the boolean arguments
+            subsystem_data = subsystem_name(*status_as_bool)
+            subsystem_event = getattr(self.csc, f"evt_{subsystem_order[status_index]}")
+            await subsystem_event.set_write(**asdict(subsystem_data))
 
     def configure(self, config):
         """Configure the GIS."""

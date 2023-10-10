@@ -36,5 +36,5 @@ requirements:
         - python {{python}}
         - ts-salobj
         - ts-idl
-        - pymodbus >=3,<=3.2
+        - pymodbus >=3.5
         - sshtunnel
