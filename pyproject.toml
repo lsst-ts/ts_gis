@@ -17,6 +17,9 @@ version = { attr = "setuptools_scm.get_version" }
 [tool.setuptools.packages.find]
 where = [ "python" ]
 
+[tool.setuptools.package-data]
+"*" = ["*.json"]
+
 [project.scripts]
 run_gis = "lsst.ts.gis:execute_csc"
 

@@ -1,7 +1,6 @@
 __all__ = ["ModbusCommander"]
 
 import logging
-import sys
 
 import sshtunnel
 from pymodbus.client import AsyncModbusTcpClient
@@ -143,10 +142,10 @@ class ModbusCommander:
         bit_status : `bytearray`
             The 1 and 0's string of each subsystem separated by spaces.
         """
-        status_array = bytearray()
+        status_array = []
         try:
             for data in reply.registers:
-                status_array += data.to_bytes(2, sys.byteorder)
+                status_array.append([int(x) for x in f"{data:016b}"])
             return status_array
         except Exception:
             self.log.exception("Could not generate status array.")
