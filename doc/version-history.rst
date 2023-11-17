@@ -10,6 +10,11 @@ Version History
 .. No new work should be required in order to complete this section.
 .. Below is an example of a version history format.
 
+v0.5.1
+======
+* Fix subsystem event bug.
+* Change generation of 1 and 0's string array.
+
 0.5.0
 =====
 
