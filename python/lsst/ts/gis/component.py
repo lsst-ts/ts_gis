@@ -31,7 +31,7 @@ class GISComponent:
         self.commander = None
         self.csc = csc
         self.raw_status = None
-        self.system_status = []
+        self.system_status = dict.fromkeys(range(29), 0)
         self.log = self.csc.log
 
     @property
@@ -68,12 +68,13 @@ class GISComponent:
             status_array = self.commander.generate_status_array(reply)
             status_string = await self.update_raw_status(status_array)
             self.log.debug(f"registers={reply.registers}")
-            # Since salobj checks the cached data with set_write, only need
-            # to iterate through the current reply.
             for index, current_subsystem in enumerate(reply.registers):
-                await self.csc.evt_systemStatus.set_write(
-                    index=index, status=current_subsystem
-                )
+                old_subsystem = self.system_status[index]
+                if current_subsystem != old_subsystem:
+                    self.system_status[index] = current_subsystem
+                    await self.csc.evt_systemStatus.set_write(
+                        index=index, status=current_subsystem
+                    )
             await self.fill_out_fields(status_string)
 
     async def update_raw_status(self, status_array):
@@ -90,8 +91,8 @@ class GISComponent:
             The string representation of the status.
         """
         status_string = ""
-        for status in status_array[::2]:
-            status_string += bin(status)[2:].zfill(16) + " "
+        for status in status_array:
+            status_string += "".join([str(bit) for bit in status]) + " "
 
         status_string = status_string.rstrip(" ")
 
