@@ -1,0 +1,1 @@
+Go to fault state if disconnected unexpectedly.
