@@ -63,19 +63,22 @@ class GISComponent:
 
     async def update_status(self):
         """Update the status of the GIS."""
-        reply = await self.commander.read()
-        if reply is not None:
-            status_array = self.commander.generate_status_array(reply)
-            status_string = await self.update_raw_status(status_array)
-            self.log.debug(f"registers={reply.registers}")
-            for index, current_subsystem in enumerate(reply.registers):
-                old_subsystem = self.system_status[index]
-                if current_subsystem != old_subsystem:
-                    self.system_status[index] = current_subsystem
-                    await self.csc.evt_systemStatus.set_write(
-                        index=index, status=current_subsystem
-                    )
-            await self.fill_out_fields(status_string)
+        if self.connected:
+            reply = await self.commander.read()
+            if reply is not None:
+                status_array = self.commander.generate_status_array(reply)
+                status_string = await self.update_raw_status(status_array)
+                self.log.debug(f"registers={reply.registers}")
+                for index, current_subsystem in enumerate(reply.registers):
+                    old_subsystem = self.system_status[index]
+                    if current_subsystem != old_subsystem:
+                        self.system_status[index] = current_subsystem
+                        await self.csc.evt_systemStatus.set_write(
+                            index=index, status=current_subsystem
+                        )
+                await self.fill_out_fields(status_string)
+        else:
+            raise RuntimeError("Not connected.")
 
     async def update_raw_status(self, status_array):
         """Update the raw status event.
