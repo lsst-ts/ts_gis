@@ -1,0 +1,1 @@
+Update ts-conda-build to 0.4 and restrict to pymodbus 3.5 and aiohttp 3.8.5.
