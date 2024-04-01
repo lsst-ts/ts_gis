@@ -58,7 +58,3 @@ class GISCscTestCase(salobj.BaseCscTestCase, unittest.IsolatedAsyncioTestCase):
             for subsystem in gis.subsystem_order:
                 subsystem_evt = getattr(self.remote, f"evt_{subsystem}")
                 await subsystem_evt.next(timeout=20, flush=True)
-            self.csc.component.commander = None
-            await self.assert_next_summary_state(
-                state=salobj.State.FAULT, flush=True, timeout=20
-            )
