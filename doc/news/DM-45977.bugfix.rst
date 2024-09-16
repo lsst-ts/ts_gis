@@ -1,0 +1,1 @@
+Pin pymmodbus and sshtunnel in conda recipe.
