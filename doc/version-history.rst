@@ -12,6 +12,28 @@ Version History
 
 .. towncrier release notes start
 
+ts_gis v0.6.0 (2024-09-23)
+==========================
+
+Features
+--------
+
+- Go to fault state if disconnected unexpectedly. (`DM-42817 <https://rubinobs.atlassian.net/DM-42817>`_)
+
+
+Bugfixes
+--------
+
+- Update ts-conda-build to 0.4 and restrict to pymodbus 3.5 and aiohttp 3.8.5. (`DM-43486 <https://rubinobs.atlassian.net/DM-43486>`_)
+- Pin pymmodbus and sshtunnel in conda recipe. (`DM-45977 <https://rubinobs.atlassian.net/DM-45977>`_)
+
+
+Improved Documentation
+----------------------
+
+- Add towncrier. (`DM-42817 <https://rubinobs.atlassian.net/DM-42817>`_)
+
+
 v0.5.1
 ======
 * Fix subsystem event bug.
