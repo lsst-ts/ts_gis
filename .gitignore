@@ -31,4 +31,3 @@ api
 .mypy.ini
 .clang-format
 .ruff.toml
-towncrier.toml

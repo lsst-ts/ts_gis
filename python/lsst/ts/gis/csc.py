@@ -75,8 +75,13 @@ class GISCsc(salobj.ConfigurableCsc):
         self.log.info("Starting telemetry loop.")
         while True:
             try:
-                await self.component.update_status()
-                await asyncio.sleep(self.telemetry_interval)
+                if self.connected:
+                    await self.component.update_status()
+                    await asyncio.sleep(self.telemetry_interval)
+                else:
+                    await self.fault(
+                        code=1, report="Unexpectedly disconnected from GIS."
+                    )
             except Exception:
                 self.log.exception("Telemetry loop failed.")
                 raise
@@ -106,10 +111,11 @@ class GISCsc(salobj.ConfigurableCsc):
                 self.log.info("Starting mock server.")
                 if self.mock_server_task.done():
                     self.mock_server_task = asyncio.create_task(
-                        self.mock_server.run_forever()
+                        self.mock_server.run_forever(only_start=False)
                     )
-                self.log.info("Mock server started.")
+                    await asyncio.sleep(0.5)
             if not self.connected:
+                self.log.info("Connect to the GIS.")
                 await self.component.connect()
             if self.telemetry_task.done():
                 self.telemetry_task = asyncio.create_task(self.telemetry_loop())
@@ -133,8 +139,8 @@ class GISCsc(salobj.ConfigurableCsc):
 
     async def close_tasks(self):
         """Shutdown mock server and connection to server."""
-        self.telemetry_task.cancel()
         await self.component.disconnect()
+        self.telemetry_task.cancel()
         self.mock_server_task.cancel()
         if self.mock_server is not None:
             await self.mock_server.stop()

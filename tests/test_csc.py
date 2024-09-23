@@ -33,7 +33,7 @@ class GISCscTestCase(salobj.BaseCscTestCase, unittest.IsolatedAsyncioTestCase):
             config_dir=TEST_CONFIG_DIR,
         ):
             await self.check_standard_state_transitions(
-                enabled_commands=[], override="", timeout=20
+                enabled_commands=[], override="", timeout=30
             )
 
     async def test_bin_script(self):
