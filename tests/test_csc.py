@@ -2,7 +2,9 @@ import os
 import pathlib
 import unittest
 
-from lsst.ts import gis, salobj
+from lsst.ts import salobj
+from lsst.ts import gis
+from lsst.ts.xml import sal_enums
 
 TEST_CONFIG_DIR = pathlib.Path(__file__).parents[1].joinpath("tests", "data", "config")
 
@@ -14,11 +16,11 @@ class GISCscTestCase(salobj.BaseCscTestCase, unittest.IsolatedAsyncioTestCase):
 
     def basic_make_csc(
         self,
-        initial_state,
-        config_dir=TEST_CONFIG_DIR,
-        simulation_mode=1,
-        override="",
-    ):
+        initial_state: sal_enums.State | int = sal_enums.State.STANDBY,
+        config_dir: str | pathlib.Path = TEST_CONFIG_DIR,
+        simulation_mode: int = 1,
+        override: str = "",
+    ) -> gis.GISCsc:
         return gis.GISCsc(
             initial_state=initial_state,
             simulation_mode=simulation_mode,
@@ -26,24 +28,22 @@ class GISCscTestCase(salobj.BaseCscTestCase, unittest.IsolatedAsyncioTestCase):
             config_dir=config_dir,
         )
 
-    async def test_standard_state_transitions(self):
+    async def test_standard_state_transitions(self) -> None:
         async with self.make_csc(
             initial_state=salobj.State.STANDBY,
             simulation_mode=1,
             config_dir=TEST_CONFIG_DIR,
         ):
-            await self.check_standard_state_transitions(
-                enabled_commands=[], override="", timeout=30
-            )
+            await self.check_standard_state_transitions(enabled_commands=[], override="", timeout=30)
 
-    async def test_bin_script(self):
+    async def test_bin_script(self) -> None:
         await self.check_bin_script(
             name="GIS",
             exe_name="run_gis",
             index=None,
         )
 
-    async def test_telemetry(self):
+    async def test_telemetry(self) -> None:
         async with self.make_csc(
             initial_state=salobj.State.ENABLED,
             simulation_mode=1,
