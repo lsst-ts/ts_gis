@@ -32,6 +32,9 @@ __all__ = [
 ]
 
 from dataclasses import dataclass
+from typing import Self, Type
+
+# ruff: noqa: N801
 
 subsystem_order = (
     "gisCpuInputs",
@@ -174,7 +177,7 @@ class gisCpuReserve:
     ]
 
     @classmethod
-    def tuple_range(cls):
+    def tuple_range(cls: Type[Self]) -> tuple[int, int]:
         return 0, 15
 
 
@@ -271,7 +274,7 @@ class afeDecentralizedIOOutputs:
     sdoAFEfree: tuple[bool, bool, bool, bool, bool, bool, bool, bool]
 
     @classmethod
-    def tuple_range(cls):
+    def tuple_range(cls: Type[Self]) -> tuple[int, int]:
         return 8, 15
 
 
@@ -304,7 +307,7 @@ class afeDecentralizedIOFree:
     ]
 
     @classmethod
-    def tuple_range(cls):
+    def tuple_range(cls: Type[Self]) -> tuple[int, int]:
         return 0, 15
 
 
@@ -344,7 +347,7 @@ class laserDecentralizedIOInput:
     sdiLASfree: tuple[bool, bool, bool, bool, bool, bool, bool, bool]
 
     @classmethod
-    def tuple_range(cls):
+    def tuple_range(cls: Type[Self]) -> tuple[int, int]:
         return 8, 15
 
 
@@ -373,7 +376,7 @@ class laserDecentralizedIOOutputs:
     sdoLASfree: tuple[bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool]
 
     @classmethod
-    def tuple_range(cls):
+    def tuple_range(cls: Type[Self]) -> tuple[int, int]:
         return 5, 15
 
 
@@ -406,7 +409,7 @@ class laserDecentralizedIOFree:
     ]
 
     @classmethod
-    def tuple_range(cls):
+    def tuple_range(cls: Type[Self]) -> tuple[int, int]:
         return 0, 15
 
 
@@ -454,7 +457,7 @@ class m2cDecentralizedIOInput:
     sdiM2Cfree: tuple[bool, bool, bool, bool]
 
     @classmethod
-    def tuple_range(cls):
+    def tuple_range(cls: Type[Self]) -> tuple[int, int]:
         return 12, 15
 
 
@@ -512,7 +515,7 @@ class m2cDecentralizedIOOutput:
     sdoM2Cfree: tuple[bool, bool]
 
     @classmethod
-    def tuple_range(cls):
+    def tuple_range(cls: Type[Self]) -> tuple[int, int]:
         return 14, 15
 
 
@@ -545,7 +548,7 @@ class m2cDecentralizedIOFree:
     ]
 
     @classmethod
-    def tuple_range(cls):
+    def tuple_range(cls: Type[Self]) -> tuple[int, int]:
         return 0, 15
 
 
@@ -585,7 +588,7 @@ class pfDecentralizedIoInputs:
     sdiPFfree: tuple[bool, bool, bool, bool, bool, bool, bool, bool]
 
     @classmethod
-    def tuple_range(cls):
+    def tuple_range(cls: Type[Self]) -> tuple[int, int]:
         return 8, 15
 
 
@@ -631,7 +634,7 @@ class pfDecentralizedIoOutput:
     sdoPFfree: tuple[bool, bool, bool, bool, bool, bool]
 
     @classmethod
-    def tuple_range(cls):
+    def tuple_range(cls: Type[Self]) -> tuple[int, int]:
         return 10, 15
 
 
@@ -664,7 +667,7 @@ class pfDecentralizedIoFree:
     ]
 
     @classmethod
-    def tuple_range(cls):
+    def tuple_range(cls: Type[Self]) -> tuple[int, int]:
         return 0, 15
 
 
@@ -686,12 +689,10 @@ class auxCpuInputs:
     gnetAUX_siplatliftabo: bool
     gnetAUX_siplatliftpark: bool
     gnetAUX_simanliftpark: bool
-    gnetAUXfree: tuple[
-        bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool
-    ]
+    gnetAUXfree: tuple[bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool]
 
     @classmethod
-    def tuple_range(cls):
+    def tuple_range(cls: Type[Self]) -> tuple[int, int]:
         return 3, 15
 
 
@@ -728,7 +729,7 @@ class auxCpuOutputs:
     ]
 
     @classmethod
-    def tuple_range(cls):
+    def tuple_range(cls: Type[Self]) -> tuple[int, int]:
         return 2, 15
 
 
@@ -753,12 +754,10 @@ class domeCpuInputs:
     gnetDOME_sireardoor: bool
     gnetDOME_sietpb: bool
     gnetDOME_sicraneparked: bool
-    gnetDomefree: tuple[
-        bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool
-    ]
+    gnetDomefree: tuple[bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool]
 
     @classmethod
-    def tuple_range(cls):
+    def tuple_range(cls: Type[Self]) -> tuple[int, int]:
         return 4, 15
 
 
@@ -786,12 +785,10 @@ class domeCpuOutputs:
     gnetDOME_solockingpinsto: bool
     gnetDOME_soreardoorsto: bool
     gnetDOME_soazdrivesto: bool
-    gnetDOMEfree: tuple[
-        bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool
-    ]
+    gnetDOMEfree: tuple[bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool]
 
     @classmethod
-    def tuple_range(cls):
+    def tuple_range(cls: Type[Self]) -> tuple[int, int]:
         return 5, 15
 
 
@@ -828,7 +825,7 @@ class m1m3CpuInputs:
     ]
 
     @classmethod
-    def tuple_range(cls):
+    def tuple_range(cls: Type[Self]) -> tuple[int, int]:
         return 2, 15
 
 
@@ -850,12 +847,10 @@ class m1m3CpuOutputs:
     gnetM1M3_soheartbeat: bool
     gnetM1M3_soearthsto: bool
     gnetM1M3_soemergsto: bool
-    gnetM1M3free: tuple[
-        bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool
-    ]
+    gnetM1M3free: tuple[bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool]
 
     @classmethod
-    def tuple_range(cls):
+    def tuple_range(cls: Type[Self]) -> tuple[int, int]:
         return 3, 15
 
 
@@ -878,12 +873,10 @@ class tmaCpuInputs:
     gnetTMA_sipullcord: bool
     gnetTMA_sietpb: bool
     gnetTMA_simcsfault: bool
-    gnetTMAfree: tuple[
-        bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool
-    ]
+    gnetTMAfree: tuple[bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool]
 
     @classmethod
-    def tuple_range(cls):
+    def tuple_range(cls: Type[Self]) -> tuple[int, int]:
         return 4, 15
 
 
@@ -908,12 +901,10 @@ class tmaCpuOutputs:
     gnetTMA_soothersto: bool
     gnetTMA_somainaxissto: bool
     gnetTMA_soccwsto: bool
-    gnetTMAfree: tuple[
-        bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool
-    ]
+    gnetTMAfree: tuple[bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool]
 
     @classmethod
-    def tuple_range(cls):
+    def tuple_range(cls: Type[Self]) -> tuple[int, int]:
         return 4, 15
 
 
@@ -992,12 +983,10 @@ class causes2:
     gcauses_D17: bool
     gcauses_D18: bool
     gcauses_D19: bool
-    gcausesfree: tuple[
-        bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool
-    ]
+    gcausesfree: tuple[bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool]
 
     @classmethod
-    def tuple_range(cls):
+    def tuple_range(cls: Type[Self]) -> tuple[int, int]:
         return 3, 15
 
 
@@ -1076,12 +1065,10 @@ class causes2Override:
     govr_D17: bool
     govr_D18: bool
     govr_D19: bool
-    govrfree: tuple[
-        bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool
-    ]
+    govrfree: tuple[bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool]
 
     @classmethod
-    def tuple_range(cls):
+    def tuple_range(cls: Type[Self]) -> tuple[int, int]:
         return 3, 15
 
 
@@ -1164,10 +1151,8 @@ class effects2:
     geffects_A19: bool
     geffects_A20: bool
     geffects_A21: bool
-    geffectsfree: tuple[
-        bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool
-    ]
+    geffectsfree: tuple[bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool]
 
     @classmethod
-    def tuple_range(cls):
+    def tuple_range(cls: Type[Self]) -> tuple[int, int]:
         return 5, 15
