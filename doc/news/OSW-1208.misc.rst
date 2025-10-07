@@ -1,0 +1,1 @@
+Pinned paramiko to compatible version with sshtunnel.
