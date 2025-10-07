@@ -37,4 +37,4 @@ requirements:
         - ts-xml
         - pymodbus =3.8
         - sshtunnel =0.4
-        - paramiko <=4
+        - paramiko <4
