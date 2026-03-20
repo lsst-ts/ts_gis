@@ -127,7 +127,7 @@ class ModbusCommander:
         """
         assert self.client is not None
         if self.connected:
-            reply = await self.client.read_holding_registers(address=0, count=29)
+            reply = await self.client.read_holding_registers(address=0, count=33)
             if not isinstance(reply, ModbusIOException):
                 return reply
             else:

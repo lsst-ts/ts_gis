@@ -28,6 +28,8 @@ __all__ = [
     "causes2Override",
     "effects",
     "effects2",
+    "acks",
+    "auxTel",
     "subsystem_order",
 ]
 
@@ -66,6 +68,12 @@ subsystem_order = (
     "causes2Override",
     "effects",
     "effects2",
+    "acks",
+    "auxTel",
+    "Reserved",
+    "Reserved2",
+    "Reserved3",
+    "Reserved4",
 )
 
 
@@ -785,7 +793,7 @@ class domeCpuOutputs:
     gnetDOME_solockingpinsto: bool
     gnetDOME_soreardoorsto: bool
     gnetDOME_soazdrivesto: bool
-    gnetDOMEfree: tuple[bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool]
+    gnetDOMEfree: tuple[bool, ...] = (False,) * 11
 
     @classmethod
     def tuple_range(cls: Type[Self]) -> tuple[int, int]:
@@ -807,22 +815,7 @@ class m1m3CpuInputs:
 
     gnetM1M3_siinterlock: bool
     gnetM1M3_siheartbeat: bool
-    gnetM1M3free: tuple[
-        bool,
-        bool,
-        bool,
-        bool,
-        bool,
-        bool,
-        bool,
-        bool,
-        bool,
-        bool,
-        bool,
-        bool,
-        bool,
-        bool,
-    ]
+    gnetM1M3free: tuple[bool, ...] = (False,) * 14
 
     @classmethod
     def tuple_range(cls: Type[Self]) -> tuple[int, int]:
@@ -847,7 +840,7 @@ class m1m3CpuOutputs:
     gnetM1M3_soheartbeat: bool
     gnetM1M3_soearthsto: bool
     gnetM1M3_soemergsto: bool
-    gnetM1M3free: tuple[bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool]
+    gnetM1M3free: tuple[bool, ...] = (False,) * 13
 
     @classmethod
     def tuple_range(cls: Type[Self]) -> tuple[int, int]:
@@ -873,7 +866,7 @@ class tmaCpuInputs:
     gnetTMA_sipullcord: bool
     gnetTMA_sietpb: bool
     gnetTMA_simcsfault: bool
-    gnetTMAfree: tuple[bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool]
+    gnetTMAfree: tuple[bool, ...] = (False,) * 12
 
     @classmethod
     def tuple_range(cls: Type[Self]) -> tuple[int, int]:
@@ -901,7 +894,7 @@ class tmaCpuOutputs:
     gnetTMA_soothersto: bool
     gnetTMA_somainaxissto: bool
     gnetTMA_soccwsto: bool
-    gnetTMAfree: tuple[bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool]
+    gnetTMAfree: tuple[bool, ...] = (False,) * 12
 
     @classmethod
     def tuple_range(cls: Type[Self]) -> tuple[int, int]:
@@ -983,11 +976,14 @@ class causes2:
     gcauses_D17: bool
     gcauses_D18: bool
     gcauses_D19: bool
-    gcausesfree: tuple[bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool]
+    gcauses_D20: bool
+    gcauses_D25: bool
+    gcauses_D26: bool
+    gcausesfree: tuple[bool, ...] = (False,) * 10
 
     @classmethod
     def tuple_range(cls: Type[Self]) -> tuple[int, int]:
-        return 3, 15
+        return 6, 15
 
 
 @dataclass
@@ -1065,11 +1061,14 @@ class causes2Override:
     govr_D17: bool
     govr_D18: bool
     govr_D19: bool
-    govrfree: tuple[bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool]
+    govr_D20: bool
+    govr_D25: bool
+    govr_D26: bool
+    govrfree: tuple[bool, ...] = (False,) * 10
 
     @classmethod
     def tuple_range(cls: Type[Self]) -> tuple[int, int]:
-        return 3, 15
+        return 6, 15
 
 
 @dataclass
@@ -1151,8 +1150,60 @@ class effects2:
     geffects_A19: bool
     geffects_A20: bool
     geffects_A21: bool
-    geffectsfree: tuple[bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool]
+    geffects_A22: bool
+    geffectsfree: tuple[bool, ...] = (False,) * 10
 
     @classmethod
     def tuple_range(cls: Type[Self]) -> tuple[int, int]:
-        return 5, 15
+        return 6, 15
+
+
+@dataclass
+class acks:
+    gack_CPUetw1rst: bool
+    gack_CPUetw2rst: bool
+    gack_AFEetacrst: bool
+    gack_AFEetsfrst: bool
+    gack_LASetrst: bool
+    gack_M2Cetm2arst: bool
+    gack_M2Cetm2hrst: bool
+    gack_M2Cetcrrst: bool
+    gack_M2Cetchrst: bool
+    gack_PFLetpflowrst: bool
+    gack_PFLetauxcrst: bool
+    gack_PFLmlrst: bool
+    gackfree: tuple[bool, ...] = (False, False, False, False)
+
+    @classmethod
+    def tuple_range(cls: Type[Self]) -> tuple[int, int]:
+        return 11, 15
+
+
+@dataclass
+class auxTel:
+    gnetAUXTel_soauxtelearthquakesto: bool
+    gnetAUXTelfree: tuple[bool, ...] = (False,) * 14
+
+    @classmethod
+    def tuple_range(cls: Type[Self]) -> tuple[int, int]:
+        return 1, 15
+
+
+@dataclass
+class Reserved:
+    reserved: tuple[bool, ...] = (False,) * 16
+
+
+@dataclass
+class Reserved2:
+    reserved: tuple[bool, ...] = (False,) * 16
+
+
+@dataclass
+class Reserved3:
+    reserved: tuple[bool, ...] = (False,) * 16
+
+
+@dataclass
+class Reserved4:
+    reserved: tuple[bool, ...] = (False,) * 16

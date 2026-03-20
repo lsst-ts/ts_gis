@@ -31,7 +31,7 @@ class GISComponent:
     def __init__(self, log: Logger, simulation_mode: int = 0) -> None:
         self.commander: None | ModbusCommander = None
         self.raw_status: None = None
-        self.system_status: dict[int, int] = dict.fromkeys(range(29), 0)
+        self.system_status: dict[int, int] = dict.fromkeys(range(33), 0)
         self.log: Logger = log
         self.config: None | SimpleNamespace = None
         self.simulation_mode: int = simulation_mode

@@ -2,19 +2,19 @@ __all__ = ["GISCsc", "execute_csc"]
 
 import asyncio
 import pathlib
-from types import SimpleNamespace
 from dataclasses import asdict
+from types import SimpleNamespace
 
-from lsst.ts import salobj
-from lsst.ts import utils
-from lsst.ts.xml import sal_enums
-from pymodbus.server.simulator.http_server import ModbusSimulatorServer
 from pymodbus.pdu import ModbusPDU
+from pymodbus.server.simulator.http_server import ModbusSimulatorServer
+
+from lsst.ts import salobj, utils
+from lsst.ts.xml import sal_enums
 
 from . import __version__, enums
 from .component import GISComponent
-from .enums import subsystem_order
 from .config import CONFIG_SCHEMA
+from .enums import subsystem_order
 
 FILE = pathlib.Path(__file__).resolve().parents[0] / "data" / "setup.json"
 
@@ -94,6 +94,7 @@ class GISCsc(salobj.ConfigurableCsc):
                     return
             except Exception:
                 self.log.exception("Telemetry loop failed.")
+                await self.fault(code=2, report="Telemetry loop failed.")
 
     async def publish_new_subsystems(self, reply: ModbusPDU) -> None:
         self.log.debug(f"registers={reply.registers}")
@@ -125,6 +126,8 @@ class GISCsc(salobj.ConfigurableCsc):
         for status_index, status in enumerate(statuses_array):
             self.log.debug(f"{status=}")
             subsystem_name = getattr(enums, subsystem_order[status_index])
+            if subsystem_order[status_index] in ["Reserved", "Reserved2", "Reserved3", "Reserved4"]:
+                continue
             # For a given string of 1 and 0's, return an array of booleans
             if hasattr(subsystem_name, "tuple_range"):
                 tuple_min, tuple_max = subsystem_name.tuple_range()
@@ -181,7 +184,11 @@ class GISCsc(salobj.ConfigurableCsc):
                     await asyncio.sleep(0.5)
             if not self.connected:
                 self.log.info("Connect to the GIS.")
-                await self.component.connect()
+                try:
+                    await self.component.connect()
+                except Exception:
+                    await self.fault(code=3, report="Failed to connect to the GIS.")
+                    return
             if self.telemetry_task.done():
                 self.telemetry_task = asyncio.create_task(self.telemetry_loop())
         else:
