@@ -8,6 +8,8 @@ from pymodbus.client import AsyncModbusTcpClient
 from pymodbus.exceptions import ModbusIOException
 from pymodbus.pdu import ModbusPDU
 
+from .wizardry import NUMBER_OF_SUBSYSTEMS
+
 
 class ModbusCommander:
     """Wrapper around the modbus client.
@@ -22,20 +24,31 @@ class ModbusCommander:
     Attributes
     ----------
     modbus_port : `int`
-        The modbus port.
+        The port for the modbus server.
     modbus_host : `str`
-        The modbus host.
+        The hostname of the modbus server.
     bastion_host : `str`
-        The bastion server hostname.
+        The hostname of the bastion used for the SSH tunnel.
     bastion_port : `int`
-        The bastion server's ssh port.
+        The port of the bastion host.
     tunnel_host : `str`
-        The local bind's host.
-        Usually localhost.
+        The local host used for the SSH tunnel.
     tunnel_port : `int`
-        The local bind's port.
-    client : `pymodbus.client.AsyncModbusTcpClient`
-        The pymodbus async client.
+        The local port used for the SSH tunnel.
+    ssh_username : `str`
+        The SSH username for the tunnel connection.
+    ssh_pkey : `str`
+        The private key path or value for SSH authentication.
+    simulation_mode : `int`
+        Whether the commander is running in simulation mode.
+    log : `logging.Logger`
+        The logger used by the commander.
+    client : `pymodbus.client.AsyncModbusTcpClient` or `None`
+        The modbus TCP client.
+    tunnel : `sshtunnel.SSHTunnelForwarder` or `None`
+        The SSH tunnel forwarder.
+    connected : `bool`
+        Whether the commander is connected.
     """
 
     def __init__(
@@ -127,7 +140,7 @@ class ModbusCommander:
         """
         assert self.client is not None
         if self.connected:
-            reply = await self.client.read_holding_registers(address=0, count=33)
+            reply = await self.client.read_holding_registers(address=0, count=NUMBER_OF_SUBSYSTEMS)
             if not isinstance(reply, ModbusIOException):
                 return reply
             else:

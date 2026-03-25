@@ -29,3 +29,4 @@ from .component import *
 from .config import *
 from .csc import *
 from .enums import *
+from .wizardry import *

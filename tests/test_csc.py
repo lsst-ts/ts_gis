@@ -50,7 +50,7 @@ class GISCscTestCase(salobj.BaseCscTestCase, unittest.IsolatedAsyncioTestCase):
         ):
             raw_status = await self.remote.evt_rawStatus.aget(timeout=20)
             assert isinstance(raw_status.status, str)
-            assert len(raw_status.status) == 560
+            assert len(raw_status.status) == gis.EXPECTED_LENGTH_OF_STATUS
             await self.remote.evt_systemStatus.aget(timeout=20)
             raw_status = await self.remote.evt_rawStatus.next(timeout=20, flush=True)
             await self.remote.evt_systemStatus.next(timeout=20, flush=True)
@@ -58,5 +58,4 @@ class GISCscTestCase(salobj.BaseCscTestCase, unittest.IsolatedAsyncioTestCase):
                 if subsystem in ["Reserved", "Reserved2", "Reserved3", "Reserved4"]:
                     continue
                 subsystem_evt = getattr(self.remote, f"evt_{subsystem}")
-                print(subsystem)
                 await subsystem_evt.next(timeout=20, flush=True)

@@ -14,7 +14,7 @@ from lsst.ts.xml import sal_enums
 from . import __version__, enums
 from .component import GISComponent
 from .config import CONFIG_SCHEMA
-from .enums import subsystem_order
+from .enums import ErrorCode, subsystem_order
 
 FILE = pathlib.Path(__file__).resolve().parents[0] / "data" / "setup.json"
 
@@ -39,15 +39,18 @@ class GISCsc(salobj.ConfigurableCsc):
 
     Attributes
     ----------
-    mock_server : `pymodbus.server.ModbusTcpServer`
+    mock_server : `ModbusSimulatorServer` or `None`
         The mock modbus server.
-        Just returns static values.
     component : `GISComponent`
         Handles the data received from the GIS.
-    telemetry_interval : `float`
-        The time to sleep for telemetry publishing.
-    telemetry_task : `asyncio.Future`
-        An asyncio task to handle starting and cancelling the telemetry loop.
+    simulator : `None`
+        Placeholder for simulator state.
+    telemetry_interval : `int`
+        The time to sleep between telemetry publications.
+    telemetry_task : `asyncio.Future` [`None`]
+        The task that runs the telemetry loop.
+    mock_server_task : `asyncio.Future` [`None`]
+        The task that runs the mock server.
     """
 
     valid_simulation_modes = [0, 1]
@@ -90,11 +93,13 @@ class GISCsc(salobj.ConfigurableCsc):
                     await self.publish_new_subsystems(reply)
                     await asyncio.sleep(self.telemetry_interval)
                 else:
-                    await self.fault(code=1, report="Unexpectedly disconnected from GIS.")
+                    await self.fault(
+                        code=ErrorCode.LOST_CONNECTION, report="Unexpectedly disconnected from GIS."
+                    )
                     return
             except Exception:
                 self.log.exception("Telemetry loop failed.")
-                await self.fault(code=2, report="Telemetry loop failed.")
+                await self.fault(code=ErrorCode.TELEMETRY_FAILED, report="Telemetry loop failed.")
 
     async def publish_new_subsystems(self, reply: ModbusPDU) -> None:
         self.log.debug(f"registers={reply.registers}")
@@ -126,7 +131,7 @@ class GISCsc(salobj.ConfigurableCsc):
         for status_index, status in enumerate(statuses_array):
             self.log.debug(f"{status=}")
             subsystem_name = getattr(enums, subsystem_order[status_index])
-            if subsystem_order[status_index] in ["Reserved", "Reserved2", "Reserved3", "Reserved4"]:
+            if "Reserved" in subsystem_order[status_index]:
                 continue
             # For a given string of 1 and 0's, return an array of booleans
             if hasattr(subsystem_name, "tuple_range"):
@@ -187,7 +192,7 @@ class GISCsc(salobj.ConfigurableCsc):
                 try:
                     await self.component.connect()
                 except Exception:
-                    await self.fault(code=3, report="Failed to connect to the GIS.")
+                    await self.fault(code=ErrorCode.CONNECT_FAILED, report="Failed to connect to the GIS.")
                     return
             if self.telemetry_task.done():
                 self.telemetry_task = asyncio.create_task(self.telemetry_loop())
