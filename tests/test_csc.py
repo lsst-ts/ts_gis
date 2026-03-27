@@ -2,8 +2,7 @@ import os
 import pathlib
 import unittest
 
-from lsst.ts import salobj
-from lsst.ts import gis
+from lsst.ts import gis, salobj
 from lsst.ts.xml import sal_enums
 
 TEST_CONFIG_DIR = pathlib.Path(__file__).parents[1].joinpath("tests", "data", "config")
@@ -51,10 +50,12 @@ class GISCscTestCase(salobj.BaseCscTestCase, unittest.IsolatedAsyncioTestCase):
         ):
             raw_status = await self.remote.evt_rawStatus.aget(timeout=20)
             assert isinstance(raw_status.status, str)
-            assert len(raw_status.status) == 492
+            assert len(raw_status.status) == gis.EXPECTED_LENGTH_OF_STATUS
             await self.remote.evt_systemStatus.aget(timeout=20)
             raw_status = await self.remote.evt_rawStatus.next(timeout=20, flush=True)
             await self.remote.evt_systemStatus.next(timeout=20, flush=True)
             for subsystem in gis.subsystem_order:
+                if subsystem in ["Reserved", "Reserved2", "Reserved3", "Reserved4"]:
+                    continue
                 subsystem_evt = getattr(self.remote, f"evt_{subsystem}")
                 await subsystem_evt.next(timeout=20, flush=True)

@@ -6,6 +6,7 @@ from types import SimpleNamespace
 from pymodbus.pdu import ModbusPDU
 
 from .commander import ModbusCommander
+from .wizardry import NUMBER_OF_SUBSYSTEMS
 
 
 class GISComponent:
@@ -13,25 +14,34 @@ class GISComponent:
 
     Parameters
     ----------
-    csc : `GISCsc`
-        The GIS CSC.
+    log
+        The log reference.
+    simulation_mode
+        * 0 - real hardware
+        * 1 - fake connection
 
     Attributes
     ----------
-    commander : `ModbusCommander`
+    commander : `ModbusCommander` or `None`
         The modbus commander.
-    csc : `GISCsc`
-        The GIS CSC.
-    raw_status : `bytearray`
+    raw_status : `None`
         The bitarray representation of the status.
-    system_status : `list` of `int`
+    system_status : `dict` [`int`, `int`]
         The statuses of the entire GIS.
+    log : `logging.Logger`
+        The log reference.
+    config : `types.SimpleNamespace` or `None`
+        The configuration.
+    simulation_mode : `int`
+        The simulation mode.
+    connected : `bool`
+        Whether the component is connected.
     """
 
     def __init__(self, log: Logger, simulation_mode: int = 0) -> None:
         self.commander: None | ModbusCommander = None
         self.raw_status: None = None
-        self.system_status: dict[int, int] = dict.fromkeys(range(29), 0)
+        self.system_status: dict[int, int] = dict.fromkeys(range(NUMBER_OF_SUBSYSTEMS), 0)
         self.log: Logger = log
         self.config: None | SimpleNamespace = None
         self.simulation_mode: int = simulation_mode
