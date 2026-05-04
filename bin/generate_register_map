@@ -1,0 +1,62 @@
+#!/usr/bin/env python
+
+import argparse
+import pathlib
+
+from lsst.ts.gis.enums import subsystem_order
+from lsst.ts.gis.register_map import parse_send_tcs, render_register_map, validate_words
+from lsst.ts.gis.wizardry import BITS_PER_REGISTER, NUMBER_OF_SUBSYSTEMS
+
+REPO_ROOT = pathlib.Path(__file__).resolve().parents[1]
+DEFAULT_SEND_TCS_PATH = REPO_ROOT / "Send_TCS.txt"
+DEFAULT_OUTPUT_PATH = REPO_ROOT / "python" / "lsst" / "ts" / "gis" / "data" / "generated_register_map.py"
+
+
+def create_parser() -> argparse.ArgumentParser:
+    """Create the command-line argument parser.
+
+    Returns
+    -------
+    parser : `argparse.ArgumentParser`
+        Parser for the register-map generation command.
+    """
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--input", type=pathlib.Path, default=DEFAULT_SEND_TCS_PATH)
+    parser.add_argument("--output", type=pathlib.Path, default=DEFAULT_OUTPUT_PATH)
+    parser.add_argument("--check", action="store_true", help="Fail if generated output is not up to date.")
+    return parser
+
+
+def main() -> None:
+    """Generate or check the GIS register-map artifact.
+
+    Raises
+    ------
+    SystemExit
+        Raised if ``--check`` is used and the generated output differs from
+        the existing output file.
+    OSError
+        Raised if input or output files cannot be read or written.
+    ValueError
+        Raised if the parsed ``Send_TCS`` contents fail validation.
+    """
+    parser = create_parser()
+    args = parser.parse_args()
+
+    text = args.input.read_text()
+    words = parse_send_tcs(text)
+    validate_words(words, NUMBER_OF_SUBSYSTEMS, BITS_PER_REGISTER)
+
+    generated = render_register_map(words=words, subsystem_order=subsystem_order)
+
+    if args.check:
+        existing = args.output.read_text()
+        if existing != generated:
+            raise SystemExit("Generated register map is out of date.")
+    else:
+        args.output.parent.mkdir(parents=True, exist_ok=True)
+        args.output.write_text(generated)
+
+
+if __name__ == "__main__":
+    main()

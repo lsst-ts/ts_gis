@@ -1,4 +1,6 @@
-__all__ = ["CONFIG_SCHEMA"]
+__all__ = ["CONFIG_SCHEMA", "GISConfig"]
+
+from typing import Protocol
 
 import yaml
 
@@ -53,3 +55,15 @@ required:
 additionalProperties: false
 """
 )
+
+
+class GISConfig(Protocol):
+    telemetry_interval: float
+    modbus_host: str
+    modbus_port: int
+    bastion_host: str
+    bastion_port: int
+    tunnel_host: str
+    tunnel_port: int
+    ssh_username: str
+    pkey: str

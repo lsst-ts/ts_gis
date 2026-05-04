@@ -49,8 +49,8 @@ class GISCscTestCase(salobj.BaseCscTestCase, unittest.IsolatedAsyncioTestCase):
             config_dir=TEST_CONFIG_DIR,
         ):
             raw_status = await self.remote.evt_rawStatus.aget(timeout=20)
-            assert isinstance(raw_status.status, str)
-            assert len(raw_status.status) == gis.EXPECTED_LENGTH_OF_STATUS
+            self.assertIsInstance(raw_status.status, str)
+            self.assertEqual(len(raw_status.status), gis.EXPECTED_LENGTH_OF_STATUS)
             await self.remote.evt_systemStatus.aget(timeout=20)
             raw_status = await self.remote.evt_rawStatus.next(timeout=20, flush=True)
             await self.remote.evt_systemStatus.next(timeout=20, flush=True)
@@ -59,3 +59,25 @@ class GISCscTestCase(salobj.BaseCscTestCase, unittest.IsolatedAsyncioTestCase):
                     continue
                 subsystem_evt = getattr(self.remote, f"evt_{subsystem}")
                 await subsystem_evt.next(timeout=20, flush=True)
+
+
+class MakeSubsystemKwargsTestCase(unittest.TestCase):
+    def test_make_subsystem_kwargs_plain_subsystem(self) -> None:
+        bits = [1, 0] * 8
+        kwargs = gis.csc.make_subsystem_kwargs(gis.enums.gisCpuInputs, bits)
+
+        self.assertEqual(kwargs["sdiCPUetw1A"], True)
+        self.assertEqual(kwargs["sdiCPUetw1B"], False)
+        self.assertEqual(kwargs["sdiCPUpsb"], False)
+
+    def test_make_subsystem_kwargs_tuple_subsystem(self) -> None:
+        bits = [1, 0, 1, 0, 1, 0, 1, 0] + [1] * 8
+        kwargs = gis.csc.make_subsystem_kwargs(gis.enums.afeDecentralizedIOOutputs, bits)
+
+        self.assertEqual(kwargs["sdoAFEetacA"], True)
+        self.assertEqual(kwargs["sdoAFEetsfrst"], False)
+        self.assertEqual(kwargs["sdoAFEfree"], (True,) * 8)
+
+    def test_make_subsystem_kwargs_rejects_wrong_bit_count(self) -> None:
+        with self.assertRaisesRegex(ValueError, "Expected 16 bits"):
+            gis.csc.make_subsystem_kwargs(gis.enums.gisCpuInputs, [0] * 15)

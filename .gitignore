@@ -32,3 +32,5 @@ api
 .clang-format
 .ruff.toml
 towncrier.toml
+generated_register_map.py
+Send_TCS.txt
