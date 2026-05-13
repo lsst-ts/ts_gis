@@ -22,6 +22,7 @@ where = [ "python" ]
 
 [project.scripts]
 run_gis = "lsst.ts.gis:execute_csc"
+command_gis = "lsst.ts.gis:command_csc"
 
 [tool.setuptools_scm]
 
