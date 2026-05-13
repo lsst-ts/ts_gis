@@ -1,4 +1,4 @@
-__all__ = ["GISCsc", "execute_csc"]
+__all__ = ["GISCsc", "execute_csc", "command_csc"]
 
 import asyncio
 import dataclasses
@@ -26,6 +26,11 @@ LOCALHOST = "127.0.0.1"
 """Local host address used for simulation-only services."""
 SIMULATOR_START_TIMEOUT = 2.0
 """Seconds to wait for the Modbus simulator to report that it started."""
+
+
+def command_csc() -> None:
+    """Command the GIS CSC."""
+    asyncio.run(salobj.CscCommander.amain(name="GIS", index=None))
 
 
 def execute_csc() -> None:
@@ -412,6 +417,7 @@ class GISCsc(salobj.ConfigurableCsc):
                 try:
                     await self.component.connect()
                 except Exception:
+                    self.log.exception("Failed to connect to the GIS.")
                     await self.fault(code=ErrorCode.CONNECT_FAILED, report="Failed to connect to the GIS.")
                     return
             if self.telemetry_task.done():
