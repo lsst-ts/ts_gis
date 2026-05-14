@@ -1,10 +1,14 @@
 import pathlib
 import unittest
+from typing import cast
 
 from lsst.ts.gis.enums import subsystem_order
 from lsst.ts.gis.register_map import (
+    BitAssignment,
+    WordAssignment,
     map_to_subsystems,
     parse_send_tcs,
+    render_register_map,
     validate_words,
 )
 from lsst.ts.gis.wizardry import BITS_PER_REGISTER, NUMBER_OF_SUBSYSTEMS
@@ -64,3 +68,21 @@ class RegisterMapParserTestCase(unittest.TestCase):
 
         self.assertEqual(words[0].bits[0].expression, "TRUE")
         self.assertEqual(words[0].bits[1].expression, "FALSE")
+
+    def test_render_register_map_escapes_expressions(self) -> None:
+        expression = 'quoted "value" and path C:\\Temp\\Send_TCS'
+        words = (
+            WordAssignment(
+                word=0,
+                output=0,
+                bits=(BitAssignment(word=0, bit=0, expression=expression),),
+            ),
+        )
+
+        source = render_register_map(words, subsystem_order=("gisCpuInputs",))
+        namespace: dict[str, object] = {}
+
+        exec(source, namespace)
+
+        register_map = cast(dict[str, tuple[str, ...]], namespace["REGISTER_MAP"])
+        self.assertEqual(register_map["gisCpuInputs"][0], expression)
