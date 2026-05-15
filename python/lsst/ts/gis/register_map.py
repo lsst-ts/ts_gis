@@ -243,5 +243,5 @@ def render_register_map(words: tuple[WordAssignment, ...], subsystem_order: tupl
         lines.append("    ),")
 
     lines.append("}")
-    lines.append("")
-    return "\n".join(lines)
+
+    return "\n".join(lines) + "\n"
