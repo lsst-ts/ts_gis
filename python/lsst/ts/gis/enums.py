@@ -88,7 +88,7 @@ class IsDataclass(Protocol):
 
 
 def find_freespace(cls: IsDataclass, field_name: str) -> tuple[int, int]:
-    """Return the start and end of free space.
+    """Return the start-inclusive, stop-exclusive range of a free-space field.
 
     Parameters
     ----------
@@ -99,7 +99,7 @@ def find_freespace(cls: IsDataclass, field_name: str) -> tuple[int, int]:
     Returns
     -------
     tuple[int, int]
-        A tuple representing the start and end of freespace.
+        The start-inclusive, stop-exclusive range of the free-space field.
     """
     offset = 0
     for field in fields(cls):
@@ -107,7 +107,7 @@ def find_freespace(cls: IsDataclass, field_name: str) -> tuple[int, int]:
             break
         else:
             offset += 1
-    return offset, len(getattr(cls, field_name)) + offset - 1
+    return offset, offset + len(getattr(cls, field_name))
 
 
 class ErrorCode(IntEnum):

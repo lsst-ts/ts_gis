@@ -1,43 +1,3 @@
-..
-  This is a template for the user-guide documentation that will accompany each CSC.
-  This template is provided to ensure that the documentation remains similar in look, feel, and contents to users.
-  The headings below are expected to be present for all CSCs, but for many CSCs, additional fields will be required.
-
-  ** All text in square brackets [] must be re-populated accordingly **
-
-  See https://developer.lsst.io/restructuredtext/style.html
-  for a guide to reStructuredText writing.
-
-  Use the following syntax for sections:
-
-  Sections
-  ========
-
-  and
-
-  Subsections
-  -----------
-
-  and
-
-  Subsubsections
-  ^^^^^^^^^^^^^^
-
-  To add images, add the image file (png, svg or jpeg preferred) to the
-  images/ directory. The reST syntax for adding the image is
-
-  .. figure:: /images/filename.ext
-   :name: fig-label
-
-   Caption text.
-
-  Feel free to delete this instructional comment.
-
-.. Fill out data so contacts section below is auto-populated
-.. add name and email between the *'s below e.g. *Marie Smith <msmith@lsst.org>*
-.. |CSC_developer| replace::  *Replace-with-name-and-email*
-.. |CSC_product_owner| replace:: *Replace-with-name-and-email*
-
 .. _User_Guide:
 
 #######################
@@ -54,51 +14,47 @@ GIS User Guide
 .. image:: https://img.shields.io/badge/Jenkins-gray.svg
     :target: https://tssw-ci.lsst.org/job/LSST_Telescope-and-Site/job/ts_gis/
 
-The GIS outputs two events via SAL DDS.
-The raw status event contains the whole 29 words of the GIS into one bytearray.
-The status event contains an index and a integer indicating the status from the subsystem.
-These events are only published when the previous status has changed.
-In order to help figure out what each system is, an enumeration containing the names of the systems is provided in the ts_idl package.
+The GIS CSC publishes SAL events for the raw GIS register state, changed subsystem register values, and per-subsystem boolean fields.
+The raw status event contains the decoded state of all 35 GIS Modbus holding registers as a space-separated string of bits.
+The status event contains an index and an integer indicating the raw register value for the subsystem.
+The subsystem status event is only published when the previous raw register value changes.
+In order to help identify each subsystem, an ordered list of subsystem names is provided by ``lsst.ts.gis.subsystem_order``.
 
 GIS Interface
 ======================
 
 Since the GIS is an alarm system meant for indicating a change in the sanctity of the telescope operations, we publish events instead of telemetry.
-The CSC works by producing two events upon reading of a change in the GIS.
+The CSC reads the GIS Modbus holding registers and publishes the decoded state as SAL events.
 
-The first event that we'll note is the ``GIS_logevent_rawStatus`` event, this event produces a byte array of 29 values from each subsystem that's currently implemented in the firmware.
-The intention is to provide users with a overall picture of the status of the GIS since a cause can trigger multiple effects.
+The first event that we'll note is the ``GIS_logevent_rawStatus`` event.
+This event publishes all decoded register bits as one string, with one 16-bit group per subsystem.
+The intention is to provide users with an overall picture of the status of the GIS since a cause can trigger multiple effects.
 This is probably most useful for user interfaces.
 
-The second event is the ``GIS_logevent_systemStatus`` event which is more granular as it only contains a changed subsystem's index and its updated word value as its being read from the modbus server.
-This is more meant to help with a user looking at the EFD data since it provides a more specific insight into an individual subsystem.
+The second event is the ``GIS_logevent_systemStatus`` event which is more granular as it only contains a changed subsystem's index and its updated word value as it is read from the Modbus server.
+This is meant to help a user looking at the EFD data since it provides a more specific insight into an individual subsystem.
 
-Both events will need to be manipulated in order to see which bits/flags were changed in each subsystem.
+Subsystem-specific events are also published, with each bit exposed as a boolean field where the XML defines a named field.
+Reserved/free bit ranges are packed into tuple fields.
 
-For example, we might get back a value of 232 from the subsystem.
-In order to determine the flag/bit value, we need to convert this value to an array of bits.
-First install a third party package bitarray which will make this process much easier.
+Bit Ordering
+============
 
-.. prompt::
-
-    conda install bitarray
-
+GIS register bits are decoded using the Pilz Modbus convention: bit 0 is the least-significant bit and bit 15 is the most-significant bit.
+For example, a register value of ``1`` means bit 0 is true and all other bits are false.
 
 .. code:: python
 
-    from bitarray import bitarray
-    import sys
-    reply = 232 # this is the integer value that we received from the CSC
-    byte_reply = reply.to_bytes(2, sys.byteorder) # We convert the int to a bytes object where we know that we have two bytes of data and we get the big/little value from the machine
-    data_bits = bitarray() # Create an empty bitarray
-    data_bits.frombytes(byte_reply) # Extend the bitarray with a bytes object
-    print(data_bits.to01()) # 1110100000000000
+    register = 1
+    bits = [(register >> bit) & 1 for bit in range(16)]
+    print(bits)  # [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
 
-Now there are 29 subsystem events that set each bit as a boolean allowing the user to easily discern what is currently triggered or not triggered.
+There is one subsystem event for each non-reserved subsystem, allowing the user to see which GIS bits are currently triggered.
 
+Monitoring Workflow
+===================
 
-Example Use-Case
-================
-
-TBD.
+For high-level monitoring, subscribe to ``GIS_logevent_rawStatus`` to see the full GIS state.
+For EFD queries that need to identify changed Modbus words, use ``GIS_logevent_systemStatus`` and map the ``index`` field through ``lsst.ts.gis.subsystem_order``.
+For user interfaces and alarms, prefer the subsystem-specific events because they expose named boolean fields instead of requiring consumers to decode register bits themselves.

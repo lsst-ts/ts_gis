@@ -1,36 +1,36 @@
 __all__ = ["GISComponent"]
 
 from logging import Logger
-from types import SimpleNamespace
 
 from pymodbus.pdu import ModbusPDU
 
 from .commander import ModbusCommander
+from .config import GISConfig
 from .wizardry import NUMBER_OF_SUBSYSTEMS
 
 
 class GISComponent:
-    """The controller for GIS.
+    """Coordinate Modbus communication and GIS status formatting.
 
     Parameters
     ----------
-    log
-        The log reference.
-    simulation_mode
-        * 0 - real hardware
-        * 1 - fake connection
+    log : `logging.Logger`
+        Logger used by the component and commander.
+    simulation_mode : `int`, optional
+        Simulation mode. Use 0 for real hardware and 1 for a simulated
+        Modbus connection.
 
     Attributes
     ----------
     commander : `ModbusCommander` or `None`
         The modbus commander.
     raw_status : `None`
-        The bitarray representation of the status.
+        Placeholder for raw status state.
     system_status : `dict` [`int`, `int`]
         The statuses of the entire GIS.
     log : `logging.Logger`
         The log reference.
-    config : `types.SimpleNamespace` or `None`
+    config : `GISConfig` or `None`
         The configuration.
     simulation_mode : `int`
         The simulation mode.
@@ -43,17 +43,34 @@ class GISComponent:
         self.raw_status: None = None
         self.system_status: dict[int, int] = dict.fromkeys(range(NUMBER_OF_SUBSYSTEMS), 0)
         self.log: Logger = log
-        self.config: None | SimpleNamespace = None
+        self.config: None | GISConfig = None
         self.simulation_mode: int = simulation_mode
 
-    @property
-    def connected(self) -> bool:
-        """Return if the component is connected or not.
+    def get_config(self) -> GISConfig:
+        """Return the configured GIS configuration.
 
         Returns
         -------
-        `bool`
-            A boolean which determines the connection status of the client.
+        config : `GISConfig`
+            Current component configuration.
+
+        Raises
+        ------
+        RuntimeError
+            Raised if the component has not been configured.
+        """
+        if self.config is None:
+            raise RuntimeError("GIS component has not been configured.")
+        return self.config
+
+    @property
+    def connected(self) -> bool:
+        """Return whether the component is connected.
+
+        Returns
+        -------
+        connected : `bool`
+            `True` if a commander exists and its Modbus client is connected.
         """
         if self.commander is not None:
             return self.commander.connected
@@ -61,53 +78,106 @@ class GISComponent:
             return False
 
     async def connect(self) -> None:
-        """Connect to the commander."""
-        assert self.config is not None
-        self.commander = ModbusCommander(self.config, self.simulation_mode, log=self.log)
+        """Create and connect the Modbus commander.
+
+        Raises
+        ------
+        RuntimeError
+            Raised if the component has not been configured.
+        Exception
+            Exceptions from the commander connection attempt are allowed to
+            propagate to the caller.
+        """
+        config = self.get_config()
+        self.commander = ModbusCommander(config, self.simulation_mode, log=self.log)
         await self.commander.connect()
 
     async def disconnect(self) -> None:
-        """Disconnect from the commander."""
+        """Disconnect and discard the Modbus commander.
+
+        Raises
+        ------
+        Exception
+            Exceptions from commander cleanup are allowed to propagate to the
+            caller.
+        """
         if self.commander is not None:
             await self.commander.disconnect()
             self.commander = None
 
-    async def update_status(self) -> tuple[None, None] | tuple[None | ModbusPDU, str]:
-        """Update the status of the GIS."""
-        assert self.commander is not None
-        if self.connected:
-            reply = await self.commander.read()
-            if reply is not None:
-                status_array = self.commander.generate_status_array(reply)
-                assert status_array is not None
-                status_string = await self.update_raw_status(status_array)
-                return reply, status_string
-            else:
-                return None, None
-        else:
-            raise RuntimeError("Not connected.")
-
-    async def update_raw_status(self, status_array: list[list[int]]) -> str:
-        """Update the raw status event.
-
-        Parameters
-        ----------
-        status_array : `bytearray`
-            The status array that contains the subsystem information.
+    def get_commander(self) -> ModbusCommander:
+        """Return the connected Modbus commander.
 
         Returns
         -------
-        status_string: `str`
-            The string representation of the status.
+        commander : `ModbusCommander`
+            Connected Modbus commander.
+
+        Raises
+        ------
+        RuntimeError
+            Raised if the commander is missing or not connected.
         """
-        status_string = ""
-        for status in status_array:
-            status_string += "".join([str(bit) for bit in status]) + " "
+        commander = self.commander
+        if commander is None:
+            raise RuntimeError("Commander is not configured.")
+        if not commander.connected:
+            raise RuntimeError("Commander is not connected.")
+        return commander
 
-        status_string = status_string.rstrip(" ")
+    async def update_status(self) -> tuple[ModbusPDU | None, list[list[int]] | None, str | None]:
+        """Read and decode the current GIS status.
 
-        return status_string
+        Returns
+        -------
+        reply : `pymodbus.pdu.ModbusPDU` or `None`
+            Raw Modbus response. `None` if the read failed.
+        status_array : `list` [`list` [`int`]] or `None`
+            Decoded register bits, one inner list per subsystem. `None` if
+            the read failed.
+        status_string : `str` or `None`
+            Raw status event string. `None` if the read failed.
 
-    def configure(self, config: SimpleNamespace) -> None:
-        """Configure the GIS."""
+        Raises
+        ------
+        RuntimeError
+            Raised if the commander is missing, disconnected, or the response
+            cannot be decoded into a status array.
+        """
+        commander = self.get_commander()
+
+        reply = await commander.read()
+        if reply is None:
+            return None, None, None
+
+        status_array = commander.generate_status_array(reply)
+        if status_array is None:
+            raise RuntimeError("Could not generate status array.")
+
+        status_string = await self.update_raw_status(status_array)
+        return reply, status_array, status_string
+
+    async def update_raw_status(self, status_array: list[list[int]]) -> str:
+        """Format decoded status bits for the raw status event.
+
+        Parameters
+        ----------
+        status_array : `list` [`list` [`int`]]
+            Decoded register bits, one inner list per subsystem.
+
+        Returns
+        -------
+        status_string : `str`
+            Space-separated bit strings for all subsystems.
+        """
+        return " ".join("".join(str(bit) for bit in status) for status in status_array)
+
+    def configure(self, config: GISConfig) -> None:
+        """Store the component configuration.
+
+        Parameters
+        ----------
+        config : `GISConfig`
+            Validated GIS configuration.
+        """
         self.config = config
