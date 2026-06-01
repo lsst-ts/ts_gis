@@ -35,6 +35,6 @@ requirements:
         - python {{python}}
         - ts-salobj
         - ts-xml
-        - pymodbus =3.8
+        - pymodbus =3.11
         - sshtunnel =0.4
         - paramiko <4

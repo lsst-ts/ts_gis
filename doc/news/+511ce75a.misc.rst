@@ -1,0 +1,1 @@
+Updated conda recipe to use pymodbus 3.11.
