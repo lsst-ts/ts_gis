@@ -1,3 +1,30 @@
+v0.7.0 (2026-06-02)
+===================
+
+New Features
+------------
+
+- Added tooling to parse ``Send_TCS.txt`` PLC structured text into GIS Modbus register mappings for auditing. (`OSW-2263 <https://rubinobs.atlassian.net//browse/OSW-2263>`_)
+
+
+Bug Fixes
+---------
+
+- Fixed GIS Modbus register decoding to use Pilz least-significant-bit first bit ordering. (`OSW-2263 <https://rubinobs.atlassian.net//browse/OSW-2263>`_)
+
+
+Performance Enhancement
+-----------------------
+
+- Added missing fields and events. (`OSW-1845 <https://rubinobs.atlassian.net//browse/OSW-1845>`_)
+
+
+Other Changes and Additions
+---------------------------
+
+- Updated conda recipe to use pymodbus 3.11.
+
+
 v0.6.2 (2026-01-22)
 ===================
 

@@ -1,1 +1,0 @@
-Fixed GIS Modbus register decoding to use Pilz least-significant-bit first bit ordering.
